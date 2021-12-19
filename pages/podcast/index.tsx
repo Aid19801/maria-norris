@@ -13,15 +13,15 @@ type Props = {
   data: any;
 }
 
-const PageBlogsIndex = ({ data }: Props) => {
+const PagePodcastIndex = ({ data }: Props) => {
+  console.log('data', data);
   return (
     <Layout title="Users List | Next.js + TypeScript Example">
-      <h1>Blogs List</h1>
+      <h1>Podcast List</h1>
       <p>
         Example fetching data from inside <code>getStaticProps()</code>.
       </p>
       <p>You are currently on: /blogs</p>
-      {/* <List items={items} /> */}
     </Layout>
   )
 }
@@ -41,4 +41,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { data } }
 }
 
-export default PageBlogsIndex
+export default PagePodcastIndex

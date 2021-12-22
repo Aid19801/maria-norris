@@ -18,6 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import { ContactMail, Feed as Blog, Info, Mic as Podcast } from '@mui/icons-material';
 import Link from 'next/link';
+import { useMediaQuery } from '@mui/material';
 
 const drawerWidth = 380;
 
@@ -37,9 +38,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
   }),
   overflowX: 'hidden',
   width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(9)} + 1px)`,
-  },
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -92,6 +90,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Nav() {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -106,7 +105,7 @@ export default function Nav() {
     <Box sx={{ display: 'flex', height: '64px', }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: 'space-between', position: 'relative', }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -114,14 +113,50 @@ export default function Nav() {
             edge="start"
             sx={{
               marginRight: '36px',
+              marginLeft: isMobile ? '-9px' : '-16px',
               ...(open && { display: 'none' }),
             }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Funk-27
-          </Typography>
+
+          <Box
+            sx={{
+              borderRadius: 50,
+              background: 'radial-gradient(orange, #ed6c02)',
+              px: isMobile ? 2 : 5,
+              py: isMobile ? 0.2 : 0,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              position: 'absolute',
+              right: 1,
+              top: isMobile ? 5 : 1,
+            }}    
+          >
+            {isMobile && open ? null : (
+              <Typography variant={isMobile ? 'h4' : 'h3'} noWrap>
+                funk-27
+              </Typography>
+            )}
+            {!isMobile && (
+              <Typography
+                variant="body1"
+                sx={{
+                  lineHeight: 1,
+                  textShadow: '1px 1px 1px #000000',
+                  color: 'darkgrey',
+                  fontFamily: 'monospace',
+                  fontSize: '15px',
+                  position: 'absolute',
+                  bottom: 0,
+                  right: '10%',
+                }}
+              >
+                discontent providers
+              </Typography>
+            )}
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

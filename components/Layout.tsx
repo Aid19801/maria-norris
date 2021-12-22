@@ -9,7 +9,7 @@ type Props = {
   title?: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = 'Funk-27 | Politics, Dystopia, Comedy, Tech.' }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -17,7 +17,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Nav />
-    <Box sx={{ marginLeft: '100px' }}>
+    <Box sx={{ marginLeft: '100px', paddingRight: 4 }}>
       {children}
     </Box>
   </div>

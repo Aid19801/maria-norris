@@ -1,24 +1,22 @@
 import { GetStaticProps } from "next";
-import Link from "next/link";
 import fetch from "node-fetch";
 import * as prismic from "@prismicio/client";
-
-import { User } from "../../interfaces";
-import { sampleUserData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
-import List from "../../components/List";
 import { useMainContext } from "../../context/main";
 import {
   Box,
-  Button,
   Card,
-  CardActions,
-  CardMedia,
   CardContent,
+  Divider,
   Grid,
+  Grow,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
-import Image from "next/image";
+import { useTheme } from "@mui/material/styles";
+import { PodcastCard } from "../../components/PodcastCard";
+import { BadgeAvatar } from "../../components/Badge";
+import { MuiDivider } from "../../components/MuiDivider";
 
 type Props = {
   data: any;
@@ -26,54 +24,217 @@ type Props = {
 
 const PagePodcastIndex = ({ data }: Props) => {
   console.log("data", data);
+  const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const mostRecentEpisode = data?.body[0].items[0];
+  const secondMostRecentEpisode = data?.body[0].items[1];
+  // console.log('isMobile', isMobile);
+  console.log("isDesktop", isDesktop);
   return (
     <Layout title="Funk-27 | Podcasts">
-      <h1>Aid Thompsin & Other Disappointments</h1>
-      <Grid container>
-        <Grid item xs={12} md={6}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              alt="podcast background microphones"
-              height="140"
-              image="/poddy.png"
+      <Typography
+        variant="h1"
+        color="secondary"
+        sx={{
+          my: 5,
+          // fontFamily: "monospace",
+          color: (theme) => theme.palette.secondary.light,
+          fontSize: isDesktop ? 200 : 110,
+        }}
+      >
+        Podcast
+      </Typography>
+      <Typography
+        variant="h5"
+        color="secondary.main.light"
+        sx={{
+          fontFamily: "monospace",
+          mb: 5,
+        }}
+      >
+        Aid Thompsin & Other Disappointments
+      </Typography>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grow in={true}>
+          <Grid item xs={12} md={6}>
+            <PodcastCard
+              title={mostRecentEpisode.title1[0].text}
+              description={mostRecentEpisode.description[0].text}
+              episodeArtworkSrc={mostRecentEpisode.podc_ep_twitter_img.url}
+              artworkAlt={mostRecentEpisode.podc_ep_twitter_img.alt}
+              guestImgSrc={mostRecentEpisode.guest_photo.url}
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {mostRecentEpisode.title1[0].text}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {mostRecentEpisode.description[0].text}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
+          </Grid>
+        </Grow>
+        <Grow in={true}>
+          <Grid item xs={12} md={6} lg={4}>
+            <PodcastCard
+              title={secondMostRecentEpisode.title1[0].text}
+              description={secondMostRecentEpisode.description[0].text}
+              episodeArtworkSrc={
+                secondMostRecentEpisode.podc_ep_twitter_img.url
+              }
+              artworkAlt={secondMostRecentEpisode.podc_ep_twitter_img.alt}
+              guestImgSrc={secondMostRecentEpisode.guest_photo.url}
+            />
+          </Grid>
+        </Grow>
+      </Grid>
 
-          {/* <Box sx={{ border: '1px solid grey', p: 2, width: '100%', height: '100%', position: 'relative' }}>
-            <Image
-              className="podcast__episodeBackground"
-              src="/poddy.png"
-              width="100%"
-              height="100%"
+      <MuiDivider prim />
+
+      <Grid container spacing={2}>
+        {data?.body[0].items.slice(2, 10).map((each) => (
+          <Grid item xs={12} md={4} lg={3} key={each.title1[0].text}>
+            <PodcastCard
+              firstBatch
+              descriptionLength={128}
+              title={each.title1[0].text}
+              description={each.description[0].text}
+              episodeArtworkSrc={each.podc_ep_twitter_img.url}
+              artworkAlt={each.podc_ep_twitter_img.alt}
+              guestImgSrc={each.guest_photo.url}
             />
-            <img
-              src={mostRecentEpisode.guest_photo.url}
-              alt={mostRecentEpisode.guest_photo.alt}
-              height={90}
-              width={90}
-            />
-            <Typography variant="h4">
-              {mostRecentEpisode.title1[0].text}
-            </Typography>
-            <Typography variant="body1">
-              {mostRecentEpisode.description[0].text}
-            </Typography>
-          </Box> */}
+          </Grid>
+        ))}
+        <Grid item xs={12} md={6}>
+          <PodcastCard
+            title={data?.body[0].items[10].title1[0].text}
+            description={data?.body[0].items[10].description[0].text}
+            episodeArtworkSrc={data?.body[0].items[10].podc_ep_twitter_img.url}
+            artworkAlt={data?.body[0].items[10].podc_ep_twitter_img.alt}
+            guestImgSrc={data?.body[0].items[10].guest_photo.url}
+          />
         </Grid>
+        <MuiDivider />
+        <Grid item xs={12} md={4} lg={3}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            {data?.body[0].items.slice(11, 13).map((each) => (
+              <Card sx={{ mb: 2 }} key={each.title1[0].text}>
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    color="secondary.dark"
+                    sx={{ position: "relative" }}
+                  >
+                    {each.title1[0].text.toLocaleLowerCase()}
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="body2"
+                    component="div"
+                    color="secondary.light"
+                    sx={{ position: "relative" }}
+                  >
+                    {each.description[0].text}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Grid>
+
+        {data?.body[0].items.slice(13, 21).map((each) => (
+          <Grid item xs={12} md={4} lg={3} key={each.title1[0].text}>
+            <PodcastCard
+              firstBatch
+              descriptionLength={128}
+              title={each.title1[0].text}
+              description={each.description[0].text}
+              episodeArtworkSrc={each.podc_ep_twitter_img.url}
+              artworkAlt={each.podc_ep_twitter_img.alt}
+              guestImgSrc={each.guest_photo.url}
+            />
+          </Grid>
+        ))}
+        <Grid item xs={12} md={4} lg={3}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            {data?.body[0].items.slice(21, 23).map((each) => (
+              <Card sx={{ mb: 2 }} key={each.title1[0].text}>
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    color="secondary.dark"
+                    sx={{ position: "relative" }}
+                  >
+                    {each.title1[0].text.toLocaleLowerCase()}
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="body2"
+                    component="div"
+                    color="secondary.light"
+                    sx={{ position: "relative" }}
+                  >
+                    {each.description[0].text}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
+          <PodcastCard
+            title={data?.body[0].items[23].title1[0].text}
+            description={data?.body[0].items[23].description[0].text}
+            episodeArtworkSrc={data?.body[0].items[23].podc_ep_twitter_img.url}
+            artworkAlt={data?.body[0].items[23].podc_ep_twitter_img.alt}
+            guestImgSrc={data?.body[0].items[23].guest_photo.url}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <PodcastCard
+            title={data?.body[0].items[24].title1[0].text}
+            description={data?.body[0].items[24].description[0].text}
+            episodeArtworkSrc={data?.body[0].items[24].podc_ep_twitter_img.url}
+            artworkAlt={data?.body[0].items[24].podc_ep_twitter_img.alt}
+            guestImgSrc={data?.body[0].items[24].guest_photo.url}
+          />
+        </Grid>
+      </Grid>
+
+      <MuiDivider prim />
+
+      <Grid
+        container
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "100vh" }}
+      >
+        {data?.body[1].items.map((each) => (
+          <Grid item xs={12} key={each.title1[0].text}>
+            <Card sx={{ maxWidth: 350 }}>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  color="secondary.dark"
+                  sx={{ position: "relative" }}
+                >
+                  {each.title1[0].text.toLocaleLowerCase()}
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="body2"
+                  component="div"
+                  color="secondary.light"
+                  sx={{ position: "relative" }}
+                >
+                  {each.description[0].text}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </Layout>
   );

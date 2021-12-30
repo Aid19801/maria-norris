@@ -1,224 +1,121 @@
 import * as React from "react";
-import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
-import { useRouter } from "next/router";
+import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import { Button, ListItemButton } from "@mui/material";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import { Badge } from "@mui/material";
+import MuiAppBar from "@mui/material/AppBar";
 import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
-import {
-  ContactMail,
-  Feed as Blog,
-  Info,
-  Mic as Podcast,
-} from "@mui/icons-material";
-import Link from "next/link";
 import { useMediaQuery } from "@mui/material";
+import { useRouter } from "next/router";
 
-const drawerWidth = 380;
-
-const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerWidth,
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: "hidden",
-});
-
-const closedMixin = (theme: Theme): CSSObject => ({
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-});
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
+const navOptions = ["podcast", "blog", "contact", "about", "socials"];
 
 export default function Nav() {
-  const theme = useTheme();
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [showOptions, setShowOptions] = React.useState<boolean>(false);
   const router = useRouter();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const navWidth = isMobile ? "100vw" : 320;
+  const responsiveFontsize = isMobile ? "50px" : "20px";
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const handleRouteChange = (loc) => {
+    setIsOpen(false);
+    router.push("/" + loc);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  React.useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setShowOptions(true);
+      }, 300);
+    } else {
+      setShowOptions(false);
+    }
+  }, [isOpen]);
 
-  const handleRouteChange = (evt, loc) => {
-    evt.preventDefault();
-    router.push(loc);
-    handleDrawerClose();
-  };
   return (
-    <Box sx={{ display: "flex", height: "64px" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar sx={{ justifyContent: "space-between", position: "relative" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: "36px",
-              marginLeft: isMobile ? "-9px" : "-16px",
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
+    <Box sx={{ display: "flex", height: "64px", zIndex: 10000000 }}>
+      <MuiAppBar
+        sx={{
+          py: 2,
+          px: 2,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Badge onClick={() => setIsOpen(!isOpen)}>
+          <MenuIcon />
+        </Badge>
+        <Typography variant="body1">Funk-27</Typography>
+      </MuiAppBar>
+      <Box
+        className="funk__drawer"
+        sx={{
+          mt: 5,
+          transition: "0.2s ease",
+          ml: "-13px",
+          py: 3,
+          px: isOpen ? 1 : 0,
+          position: "fixed",
+          width: isOpen ? navWidth : 0,
+          contain: "content",
+          height: "100vh",
+          zIndex: 2,
+          border: isOpen ? "4px solid grey" : null,
+          background: (theme) => theme.palette.secondary.light,
+        }}
+      >
+        <Box
+          sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+        >
+          <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
+            Funk-
+          </Typography>
+          <Typography sx={{ mb: 2, color: "orange" }} variant="h4">
+            27
+          </Typography>
+        </Box>
 
-          <Box
-            sx={{
-              borderRadius: 50,
-              background: "radial-gradient(orange, #ed6c02)",
-              px: isMobile ? 2 : 5,
-              py: isMobile ? 0.2 : 0,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              position: "absolute",
-              right: 1,
-              top: isMobile ? 5 : 1,
-            }}
-          >
-            {isMobile && open ? null : (
-              <Typography variant={isMobile ? "h4" : "h3"} noWrap>
-                funk-27
-              </Typography>
-            )}
-            {!isMobile && (
-              <Typography
-                variant="body1"
-                sx={{
-                  lineHeight: 1,
-                  textShadow: "1px 1px 1px #000000",
-                  color: "darkgrey",
-                  fontFamily: "monospace",
-                  fontSize: "15px",
-                  position: "absolute",
-                  bottom: 0,
-                  right: "10%",
-                }}
-              >
-                discontent providers
-              </Typography>
-            )}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {["Podcast", "Blog", "About", "Contact"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemButton
-                onClick={(evt) =>
-                  handleRouteChange(evt, `/${text.toLocaleLowerCase()}`)
-                }
-                sx={{ ml: "-14px" }}
-              >
-                <Box sx={{ display: "flex", flexDirection: "row" }}>
-                  <ListItemIcon>
-                    {text === "Podcast" && <Podcast />}
-                    {text === "Blog" && <Blog />}
-                    {text === "About" && <Info />}
-                    {text === "Contact" && <ContactMail />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </Box>
-              </ListItemButton>
-            </ListItem>
-          ))}
+        <Divider light />
+
+        <List component="nav" aria-label="mailbox folders">
+          {navOptions.map((eachOption, i) => {
+            return (
+              <>
+                <ListItem
+                  component="button"
+                  onClick={() => handleRouteChange(eachOption)}
+                  key={eachOption}
+                  sx={{
+                    color: isMobile ? "white" : "primary.light",
+                    background: "none",
+                    border: "none",
+                  }}
+                >
+                  <ListItemText
+                    primary={eachOption}
+                    sx={{
+                      textAlign: isMobile ? "center" : "start",
+                      "& span": {
+                        transition: `${(i + 1) * 200}ms`,
+                        ml: isOpen ? 0 : "-50px",
+                        fontSize: isOpen ? responsiveFontsize : "100px",
+                      },
+                    }}
+                  />
+                </ListItem>
+                <Divider light />
+              </>
+            );
+          })}
         </List>
-        <Divider />
-        <List>
-          {["Troll Board", "Socials"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                <MailIcon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
       </Box>
     </Box>
   );

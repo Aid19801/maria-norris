@@ -16,7 +16,7 @@ const Layout = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <div>
+    <div className="layout__container">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -25,9 +25,11 @@ const Layout = ({
       <Nav />
       <Box
         sx={{
-          marginLeft: isMobile ? "55px" : "100px",
-          paddingRight: 4,
+          // padding: 4,
+          // mt: "50px",
           mb: "200px",
+          ml: 2,
+          maxWidth: "95vw",
         }}
       >
         {children}

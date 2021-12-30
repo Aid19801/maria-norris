@@ -37,7 +37,8 @@ const PagePodcastIndex = ({ data }: Props) => {
         variant="h1"
         color="secondary"
         sx={{
-          my: 5,
+          mb: 5,
+          lineHeight: 1,
           // fontFamily: "monospace",
           color: (theme) => theme.palette.secondary.light,
           fontSize: isDesktop ? 200 : 110,

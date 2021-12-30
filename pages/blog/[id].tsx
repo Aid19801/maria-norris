@@ -9,7 +9,7 @@ import Layout from "../../components/Layout";
 import List from "../../components/List";
 import { useMainContext } from "../../context/main";
 import { PrismicRichText } from "@prismicio/react";
-import { Box, Grid, useMediaQuery } from "@mui/material";
+import { Box, Card, Grid, Grow, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
 
@@ -32,7 +32,7 @@ const PageBlog = ({ data }: Props) => {
   });
 
   const headline = data.data["blog-title"][0].text;
-
+  console.log("daknonno", data);
   return (
     <Layout title={headline}>
       <Grid container spacing={2} className="blog__container">
@@ -45,33 +45,43 @@ const PageBlog = ({ data }: Props) => {
           flexDirection="column"
           sx={{ padding: "0px !important" }}
         >
-          <Box sx={{ maxWidth: isMobile ? 350 : 700 }}>
-            <RichText render={data.data["blog-title"]} />
-          </Box>
-
-          <Image
-            className="blog__mainImage"
-            src={data.data["blog-image-1"].twitter.url}
-            alt={
-              data.data["blog-image-1"].twitter.alt ||
-              "blog man talking politics dystopia"
-            }
-            {...data.data["blog-image-1"].twitter.dimensions}
-          />
-          <Box
+          <Card
             sx={{
-              // border: "1px solid red",
-              width: "100%",
-              maxWidth: isMobile ? 375 : 800,
-              mt: 4,
+              px: isMobile ? null : 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
             }}
           >
-            <RichText render={bodyContent} />
-          </Box>
+            <Grow in>
+              <Box sx={{ maxWidth: isMobile ? 350 : 700 }}>
+                <RichText render={data.data["blog-title"]} />
+              </Box>
+            </Grow>
+
+            <Image
+              className="blog__mainImage"
+              src={data.data["blog-image-1"].twitter.url}
+              alt={
+                data.data["blog-image-1"].twitter.alt ||
+                "blog man talking politics dystopia"
+              }
+              {...data.data["blog-image-1"].twitter.dimensions}
+            />
+            <Box
+              sx={{
+                width: isMobile ? "80%" : "100%",
+                maxWidth: isMobile ? 375 : 800,
+                mt: 4,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <RichText render={bodyContent} />
+            </Box>
+          </Card>
         </Grid>
       </Grid>
     </Layout>

@@ -61,6 +61,6 @@
 
 @media screen and (max-width: 600px) {
   .blog__container p {
-    font-size: 30px;
+    font-size: 20px;
   }
 }

@@ -17,13 +17,14 @@ import { useTheme } from "@mui/material/styles";
 import { PodcastCard } from "../../components/PodcastCard";
 import { BadgeAvatar } from "../../components/Badge";
 import { MuiDivider } from "../../components/MuiDivider";
+import Link from "next/link";
 
 type Props = {
   data: any;
 };
 
 const PagePodcastIndex = ({ data }: Props) => {
-  console.log("data", data);
+  console.log("data podcast index page: ", data);
   const theme = useTheme();
   // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -65,6 +66,7 @@ const PagePodcastIndex = ({ data }: Props) => {
               episodeArtworkSrc={mostRecentEpisode.podc_ep_twitter_img.url}
               artworkAlt={mostRecentEpisode.podc_ep_twitter_img.alt}
               guestImgSrc={mostRecentEpisode.guest_photo.url}
+              slug={mostRecentEpisode.episode_slug[0].text}
             />
           </Grid>
         </Grow>
@@ -78,6 +80,7 @@ const PagePodcastIndex = ({ data }: Props) => {
               }
               artworkAlt={secondMostRecentEpisode.podc_ep_twitter_img.alt}
               guestImgSrc={secondMostRecentEpisode.guest_photo.url}
+              slug={secondMostRecentEpisode.episode_slug[0].text}
             />
           </Grid>
         </Grow>
@@ -96,6 +99,7 @@ const PagePodcastIndex = ({ data }: Props) => {
               episodeArtworkSrc={each.podc_ep_twitter_img.url}
               artworkAlt={each.podc_ep_twitter_img.alt}
               guestImgSrc={each.guest_photo.url}
+              slug={each.episode_slug[0].text}
             />
           </Grid>
         ))}
@@ -106,6 +110,7 @@ const PagePodcastIndex = ({ data }: Props) => {
             episodeArtworkSrc={data?.body[0].items[10].podc_ep_twitter_img.url}
             artworkAlt={data?.body[0].items[10].podc_ep_twitter_img.alt}
             guestImgSrc={data?.body[0].items[10].guest_photo.url}
+            slug={data?.body[0].items[10].episode_slug[0].text}
           />
         </Grid>
         <MuiDivider />
@@ -113,26 +118,28 @@ const PagePodcastIndex = ({ data }: Props) => {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {data?.body[0].items.slice(11, 13).map((each) => (
               <Card sx={{ mb: 2 }} key={each.title1[0].text}>
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    color="secondary.dark"
-                    sx={{ position: "relative" }}
-                  >
-                    {each.title1[0].text.toLocaleLowerCase()}
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="body2"
-                    component="div"
-                    color="secondary.light"
-                    sx={{ position: "relative" }}
-                  >
-                    {each.description[0].text}
-                  </Typography>
-                </CardContent>
+                <Link href={`/podcast/${each.episode_slug[0].text}`}>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                      color="secondary.dark"
+                      sx={{ position: "relative" }}
+                    >
+                      {each.title1[0].text.toLocaleLowerCase()}
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="body2"
+                      component="div"
+                      color="secondary.light"
+                      sx={{ position: "relative" }}
+                    >
+                      {each.description[0].text}
+                    </Typography>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </Box>
@@ -148,6 +155,7 @@ const PagePodcastIndex = ({ data }: Props) => {
               episodeArtworkSrc={each.podc_ep_twitter_img.url}
               artworkAlt={each.podc_ep_twitter_img.alt}
               guestImgSrc={each.guest_photo.url}
+              slug={each.episode_slug[0].text}
             />
           </Grid>
         ))}
@@ -155,26 +163,28 @@ const PagePodcastIndex = ({ data }: Props) => {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {data?.body[0].items.slice(21, 23).map((each) => (
               <Card sx={{ mb: 2 }} key={each.title1[0].text}>
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    color="secondary.dark"
-                    sx={{ position: "relative" }}
-                  >
-                    {each.title1[0].text.toLocaleLowerCase()}
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="body2"
-                    component="div"
-                    color="secondary.light"
-                    sx={{ position: "relative" }}
-                  >
-                    {each.description[0].text}
-                  </Typography>
-                </CardContent>
+                <Link href={`/podcast/${each.episode_slug[0].text}`}>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                      color="secondary.dark"
+                      sx={{ position: "relative" }}
+                    >
+                      {each.title1[0].text.toLocaleLowerCase()}
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="body2"
+                      component="div"
+                      color="secondary.light"
+                      sx={{ position: "relative" }}
+                    >
+                      {each.description[0].text}
+                    </Typography>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </Box>
@@ -187,6 +197,7 @@ const PagePodcastIndex = ({ data }: Props) => {
             episodeArtworkSrc={data?.body[0].items[23].podc_ep_twitter_img.url}
             artworkAlt={data?.body[0].items[23].podc_ep_twitter_img.alt}
             guestImgSrc={data?.body[0].items[23].guest_photo.url}
+            slug={data?.body[0].items[23].episode_slug[0].text}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -196,6 +207,7 @@ const PagePodcastIndex = ({ data }: Props) => {
             episodeArtworkSrc={data?.body[0].items[24].podc_ep_twitter_img.url}
             artworkAlt={data?.body[0].items[24].podc_ep_twitter_img.alt}
             guestImgSrc={data?.body[0].items[24].guest_photo.url}
+            slug={data?.body[0].items[24].episode_slug[0].text}
           />
         </Grid>
       </Grid>
@@ -213,26 +225,28 @@ const PagePodcastIndex = ({ data }: Props) => {
         {data?.body[1].items.map((each) => (
           <Grid item xs={12} key={each.title1[0].text}>
             <Card sx={{ maxWidth: 350 }}>
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  color="secondary.dark"
-                  sx={{ position: "relative" }}
-                >
-                  {each.title1[0].text.toLocaleLowerCase()}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  variant="body2"
-                  component="div"
-                  color="secondary.light"
-                  sx={{ position: "relative" }}
-                >
-                  {each.description[0].text}
-                </Typography>
-              </CardContent>
+              <Link href={`/podcast/${each.episode_slug[0].text}`}>
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    color="secondary.dark"
+                    sx={{ position: "relative" }}
+                  >
+                    {each.title1[0].text.toLocaleLowerCase()}
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="body2"
+                    component="div"
+                    color="secondary.light"
+                    sx={{ position: "relative" }}
+                  >
+                    {each.description[0].text}
+                  </Typography>
+                </CardContent>
+              </Link>
             </Card>
           </Grid>
         ))}

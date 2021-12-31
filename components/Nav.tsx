@@ -88,11 +88,10 @@ export default function Nav() {
         <List component="nav" aria-label="mailbox folders">
           {navOptions.map((eachOption, i) => {
             return (
-              <>
+              <React.Fragment key={eachOption}>
                 <ListItem
                   component="button"
                   onClick={() => handleRouteChange(eachOption)}
-                  key={eachOption}
                   sx={{
                     color: isMobile ? "white" : "primary.light",
                     background: "none",
@@ -112,7 +111,7 @@ export default function Nav() {
                   />
                 </ListItem>
                 <Divider light />
-              </>
+              </React.Fragment>
             );
           })}
         </List>

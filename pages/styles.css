@@ -1,19 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Oswald:wght@200;500;700&display=swap");
 
 * {
   /* border: 1px solid lightgrey; */
 }
 
 .blog__container p {
-  font-family: Merriweather;
+  font-family: Lora;
+  line-height: 1.7;
   text-align: start;
   width: 100%;
 }
 .blog__container strong {
   font-weight: 800;
 }
-
+.blog__container pre {
+  width: 100%;
+  font-family: monospace;
+  overflow: scroll;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(224, 241, 241);
+}
 .blog__container p > a {
   color: orange !important;
   font-weight: 800;

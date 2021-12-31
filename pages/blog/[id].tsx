@@ -9,9 +9,20 @@ import Layout from "../../components/Layout";
 import List from "../../components/List";
 import { useMainContext } from "../../context/main";
 import { PrismicRichText } from "@prismicio/react";
-import { Box, Card, Grid, Grow, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Card,
+  Divider,
+  Grid,
+  Grow,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
+import { MuiDivider } from "../../components/MuiDivider";
+import { BadgeAvatar } from "../../components/Badge";
+import { Facebook, Twitter } from "@mui/icons-material";
 
 type Props = {
   data: any;
@@ -32,7 +43,10 @@ const PageBlog = ({ data }: Props) => {
   });
 
   const headline = data.data["blog-title"][0].text;
-  console.log("daknonno", data);
+  const blogDate = new Date(data.first_publication_date)
+    .toString()
+    .slice(0, 15);
+  console.log("blogDate", blogDate);
   return (
     <Layout title={headline}>
       <Grid container spacing={2} className="blog__container">
@@ -47,10 +61,13 @@ const PageBlog = ({ data }: Props) => {
         >
           <Card
             sx={{
+              mt: isMobile ? null : 6,
               px: isMobile ? null : 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              background:
+                "linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(217,216,208,0.25674019607843135) 100%)",
             }}
           >
             <Grow in>
@@ -58,6 +75,69 @@ const PageBlog = ({ data }: Props) => {
                 <RichText render={data.data["blog-title"]} />
               </Box>
             </Grow>
+
+            {!isMobile && <MuiDivider prim right />}
+
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                borderRadius: 24,
+                px: 4,
+                py: 1,
+                mb: 2,
+              }}
+            >
+              <BadgeAvatar src="/me.jpeg" height={60} width={60} />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  ml: 1,
+                }}
+              >
+                <Typography
+                  component="a"
+                  href="https://twitter.com/aidthompsin"
+                  sx={{ textDecoration: "none", color: "black" }}
+                  fontFamily="monospace"
+                  fontSize="13px"
+                >
+                  @AidThompsin
+                </Typography>
+                <Typography variant="h6" fontFamily="monospace" fontSize="13px">
+                  London, UK.
+                </Typography>
+              </Box>
+            </Box>
+
+            <Divider sx={{ width: isMobile ? "90%" : "80%", mb: 4 }} />
+
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                ml: 1,
+                mb: 4,
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{ mr: 2 }}
+                color="secondary.light"
+                fontSize="13px"
+              >
+                {blogDate}
+              </Typography>
+              <Facebook sx={{ mr: 2, color: theme.palette.secondary.light }} />
+              <Twitter sx={{ color: theme.palette.secondary.light }} />
+            </Box>
+
+            <Divider sx={{ width: isMobile ? "90%" : "80%", mb: 4 }} />
 
             <Image
               className="blog__mainImage"
@@ -68,11 +148,12 @@ const PageBlog = ({ data }: Props) => {
               }
               {...data.data["blog-image-1"].twitter.dimensions}
             />
+            <MuiDivider left prim />
             <Box
               sx={{
                 width: isMobile ? "80%" : "100%",
                 maxWidth: isMobile ? 375 : 800,
-                mt: 4,
+                mt: isMobile ? 1 : 4,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",

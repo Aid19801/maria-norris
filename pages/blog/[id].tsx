@@ -11,6 +11,7 @@ import { useMainContext } from "../../context/main";
 import { PrismicRichText } from "@prismicio/react";
 import {
   Box,
+  Button,
   Card,
   Divider,
   Grid,
@@ -47,6 +48,12 @@ const PageBlog = ({ data }: Props) => {
     .toString()
     .slice(0, 15);
   console.log("blogDate", blogDate);
+
+  const { toggleLoading } = useMainContext();
+  if (data) {
+    toggleLoading(false);
+  }
+  console.log("blog page data obj", data);
   return (
     <Layout title={headline}>
       <Grid container spacing={2} className="blog__container">
@@ -63,6 +70,7 @@ const PageBlog = ({ data }: Props) => {
             sx={{
               mt: isMobile ? null : 6,
               px: isMobile ? null : 8,
+              pb: 6,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -133,8 +141,24 @@ const PageBlog = ({ data }: Props) => {
               >
                 {blogDate}
               </Typography>
-              <Facebook sx={{ mr: 2, color: theme.palette.secondary.light }} />
-              <Twitter sx={{ color: theme.palette.secondary.light }} />
+              <Button
+                onClick={() =>
+                  window.open(
+                    `https://www.facebook.com/sharer/sharer.php?u=https://funk-27.co.uk/blog/${data.uid}`
+                  )
+                }
+              >
+                <Facebook sx={{ color: theme.palette.secondary.light }} />
+              </Button>
+              <Button
+                onClick={() =>
+                  window.open(
+                    `https://twitter.com/intent/tweet?url=https://funk-27.co.uk/blog/${data.uid}&text=Sup%20People!%20This%20is%20wild,%20man.%0AGive%20it%20a%20read%20if%20you%20have%20five%20minutes.%0A`
+                  )
+                }
+              >
+                <Twitter sx={{ color: theme.palette.secondary.light }} />
+              </Button>
             </Box>
 
             <Divider sx={{ width: isMobile ? "90%" : "80%", mb: 4 }} />

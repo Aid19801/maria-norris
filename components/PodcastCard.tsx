@@ -34,7 +34,7 @@ export const PodcastCard: React.FC<PodcastCardType> = ({
 }) => {
   return (
     <Card sx={{ minHeight: 300 }}>
-      <Link href={`podcast/${slug}`}>
+      <Link href="/podcast/[id]" as={`podcast/${slug}`}>
         <Box>
           <CardMedia
             component="img"

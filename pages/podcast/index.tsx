@@ -24,14 +24,14 @@ type Props = {
 };
 
 const PagePodcastIndex = ({ data }: Props) => {
-  console.log("data podcast index page: ", data);
   const theme = useTheme();
-  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const mostRecentEpisode = data?.body[0].items[0];
   const secondMostRecentEpisode = data?.body[0].items[1];
-  // console.log('isMobile', isMobile);
-  console.log("isDesktop", isDesktop);
+  const { toggleLoading } = useMainContext();
+  if (data) {
+    toggleLoading(false);
+  }
   return (
     <Layout title="Funk-27 | Podcasts">
       <Typography
@@ -118,7 +118,10 @@ const PagePodcastIndex = ({ data }: Props) => {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {data?.body[0].items.slice(11, 13).map((each) => (
               <Card sx={{ mb: 2 }} key={each.title1[0].text}>
-                <Link href={`/podcast/${each.episode_slug[0].text}`}>
+                <Link
+                  href="/podcast/[id]"
+                  as={`/podcast/${each.episode_slug[0].text}`}
+                >
                   <CardContent>
                     <Typography
                       gutterBottom
@@ -163,7 +166,10 @@ const PagePodcastIndex = ({ data }: Props) => {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {data?.body[0].items.slice(21, 23).map((each) => (
               <Card sx={{ mb: 2 }} key={each.title1[0].text}>
-                <Link href={`/podcast/${each.episode_slug[0].text}`}>
+                <Link
+                  href="/podcast/[id]"
+                  as={`/podcast/${each.episode_slug[0].text}`}
+                >
                   <CardContent>
                     <Typography
                       gutterBottom
@@ -225,7 +231,10 @@ const PagePodcastIndex = ({ data }: Props) => {
         {data?.body[1].items.map((each) => (
           <Grid item xs={12} key={each.title1[0].text}>
             <Card sx={{ maxWidth: 350 }}>
-              <Link href={`/podcast/${each.episode_slug[0].text}`}>
+              <Link
+                href="/podcast/[id]"
+                as={`/podcast/${each.episode_slug[0].text}`}
+              >
                 <CardContent>
                   <Typography
                     gutterBottom

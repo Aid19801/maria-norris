@@ -11,6 +11,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router";
+import { useMainContext } from "../context/main";
 
 const navOptions = ["podcast", "blog", "contact", "about", "socials"];
 
@@ -23,7 +24,10 @@ export default function Nav() {
   const navWidth = isMobile ? "100vw" : 320;
   const responsiveFontsize = isMobile ? "50px" : "20px";
 
+  const { toggleLoading } = useMainContext();
+
   const handleRouteChange = (loc) => {
+    toggleLoading(true);
     setIsOpen(false);
     router.push("/" + loc);
   };

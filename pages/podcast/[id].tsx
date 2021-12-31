@@ -26,22 +26,14 @@ type Props = {
 };
 
 const PagePodcast = ({ data }: Props) => {
-  console.log("data is back =>", data);
   const router = useRouter();
-  const { id } = router.query;
   const theme = useTheme();
-  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  // React.useEffect(() => {
-  //   const first = data.data.body[0].items;
-  //   const second = data.data.body[1].items;
-  //   const all = [...first, ...second];
-
-  //   const res = all.filter((each) => each.episode_slug[0].text === id)[0];
-  //   setThisEp(res);
-  // }, [data]);
-
+  const { toggleLoading } = useMainContext();
+  if (data) {
+    toggleLoading(false);
+  }
   return (
     <Layout title={`Podcast | ${data.title1[0].text}`}>
       <Typography

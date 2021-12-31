@@ -3,6 +3,8 @@ import Head from "next/head";
 import Nav from "./Nav";
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useMainContext } from "../context/main";
+import { Modal } from "./Modal";
 
 type Props = {
   children?: ReactNode;
@@ -15,6 +17,7 @@ const Layout = ({
 }: Props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { isLoading } = useMainContext();
   return (
     <div className="layout__container">
       <Head>
@@ -25,14 +28,12 @@ const Layout = ({
       <Nav />
       <Box
         sx={{
-          // padding: 4,
-          // mt: "50px",
           mb: "200px",
           ml: 2,
           maxWidth: "95vw",
         }}
       >
-        {children}
+        {isLoading ? <Modal /> : children}
       </Box>
     </div>
   );

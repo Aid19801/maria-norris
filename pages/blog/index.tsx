@@ -13,11 +13,13 @@ type Props = {
 };
 
 const PageBlogIndex = ({ data }: Props) => {
-  //
   console.log("data is ", data);
   const theme = useTheme();
-  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { toggleLoading } = useMainContext();
+  if (data) {
+    toggleLoading(false);
+  }
   return (
     <Layout title="Blog Index Page">
       <Typography

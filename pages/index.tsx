@@ -5,8 +5,7 @@ import { useMainContext } from "../context/main";
 import { Box, Typography } from "@mui/material";
 
 const IndexPage = () => {
-  const { isLoading, toggleLoading, pages } = useMainContext();
-
+  const { toggleLoading } = useMainContext();
   toggleLoading(false);
   return (
     <Layout title="Home | Next.js + TypeScript Example">
@@ -18,7 +17,6 @@ const IndexPage = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          // border: "1px solid red",
           mt: "-17px",
           ml: "-25px",
         }}

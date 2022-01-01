@@ -40,7 +40,7 @@ export const MuiDivider: React.FC<DividerProps> = ({
         sx={{
           width: isMobile ? "90%" : "60%",
           bgcolor: (theme) =>
-            prim ? theme.palette.primary.main : theme.palette.secondary.main,
+            prim ? theme.palette.primary.light : theme.palette.secondary.main,
           transform: angle,
           padding: isMobile ? 2 : 1,
         }}

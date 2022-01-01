@@ -78,3 +78,17 @@
 .podcast__socials {
   filter: grayscale(0.4);
 }
+
+.rounded {
+  border-radius: 50%;
+}
+.rounded-corners {
+  border-radius: 25px;
+}
+
+.orange-border {
+  border: 5px solid orange !important;
+}
+.grey-border {
+  border: 5px solid grey !important;
+}

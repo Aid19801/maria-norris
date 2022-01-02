@@ -12,6 +12,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMainContext } from "../context/main";
+import Link from "next/link";
 
 const navOptions = ["podcast", "blog", "contact", "about", "socials"];
 
@@ -57,7 +58,9 @@ export default function Nav() {
         <Badge onClick={() => setIsOpen(!isOpen)}>
           <MenuIcon />
         </Badge>
-        <Typography variant="body1">Funk-27</Typography>
+        <Link href="/">
+          <Typography variant="body1">Funk-27</Typography>
+        </Link>
       </MuiAppBar>
       <Box
         className="funk__drawer"
@@ -76,16 +79,18 @@ export default function Nav() {
           background: (theme) => theme.palette.secondary.light,
         }}
       >
-        <Box
-          sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-        >
-          <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
-            Funk-
-          </Typography>
-          <Typography sx={{ mb: 2, color: "orange" }} variant="h4">
-            27
-          </Typography>
-        </Box>
+        <Link href="/">
+          <Box
+            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+          >
+            <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
+              Funk-
+            </Typography>
+            <Typography sx={{ mb: 2, color: "orange" }} variant="h4">
+              27
+            </Typography>
+          </Box>
+        </Link>
 
         <Divider light />
 

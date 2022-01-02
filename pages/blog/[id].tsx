@@ -53,7 +53,7 @@ const PageBlog = ({ data }: Props) => {
   if (data) {
     toggleLoading(false);
   }
-  console.log("blog page data obj", data);
+
   return (
     <Layout title={headline}>
       <Grid container spacing={2} className="blog__container">

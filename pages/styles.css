@@ -87,8 +87,40 @@
 }
 
 .orange-border {
-  border: 5px solid orange !important;
+  border: 3px solid orange !important;
 }
 .grey-border {
-  border: 5px solid grey !important;
+  border: 3px solid grey !important;
+}
+
+.MuiButton-root.MuiButtonBase-root:hover {
+  background: rgb(224, 153, 87) !important;
+}
+.hover-fade {
+  transition: 0.3s;
+}
+.hover-fade:hover {
+  filter: grayscale(0.9);
+}
+
+.hover-line {
+  display: inline-block;
+  position: relative;
+  color: #eb9515;
+}
+.hover-line:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #eb9515;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.hover-line:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

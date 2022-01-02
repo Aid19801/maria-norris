@@ -8,10 +8,20 @@ import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
 import { BadgeAvatar } from "../components/Badge";
 
+const asSeenOnImgs = [
+  "https://cdn-radiotime-logos.tunein.com/s17569g.png",
+  "https://icon-library.com/images/bbc-icon/bbc-icon-14.jpg",
+  "https://thegrumpydads.files.wordpress.com/2020/11/full-design.jpg?w=1024",
+  "https://www.ytas.org.uk/wp-content/uploads/2019/04/fringe-logo.jpg",
+  "https://www.chortle.co.uk/images/photos/small/leicester-square-theatre.jpg",
+  "https://www.logo-designer.co/wp-content/uploads/2017/04/2017-huffpost-new-logo-design-2.png",
+];
 const AboutPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // React.useEffect(() => {
+  // }, []);
   toggleLoading(false);
   return (
     <Layout title="Funk-27 | About">
@@ -114,16 +124,15 @@ const AboutPage = () => {
             experience] look like?", and so on. <br />
             <br />
             But as the Pandemic took hold and reality began to resemble the
-            dystopias we'd read about in Science Fiction novels, the world's of
+            dystopias we'd read about in Science Fiction novels, the worlds of
             Science, Politics and Tech began to align. And so the show has
-            broadened out to find-the-funny in (or merely examine) the insanity
-            of topics like Brexit, Tory governments, the Trumpification of the
-            Republican Party and/or the changing shape and influence of Media in
-            the 21st Century.
+            broadened out to find-the-funny in (or merely examine) areas like
+            Brexit, Tory Government, the Trumpification of the Republican Party
+            and/or the changing shape and influence of Media in the 21st
+            Century.
           </Typography>
-          {/* {isMobile && <Divider sx={{ my: 2 }} />} */}
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} alignItems="center">
           <Box
             sx={{
               width: "100%",
@@ -152,6 +161,29 @@ const AboutPage = () => {
               Aid Thompsin (me), attempting to look half-serious but coming off
               as self-satisfied.
             </Typography>
+            <Box
+              sx={{
+                width: isMobile ? "100%" : "70%",
+                py: 2,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+              }}
+            >
+              {asSeenOnImgs.map((each) => {
+                return (
+                  <div className="hover-line" key={each}>
+                    <Image
+                      className="rounded grey-border hover-fade"
+                      alt="as seen on images logos"
+                      height={50}
+                      width={50}
+                      src={each}
+                    />
+                  </div>
+                );
+              })}
+            </Box>
           </Box>
         </Grid>
       </Grid>

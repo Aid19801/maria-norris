@@ -13,7 +13,6 @@ type Props = {
 };
 
 const PageBlogIndex = ({ data }: Props) => {
-  console.log("data is ", data);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const { toggleLoading } = useMainContext();

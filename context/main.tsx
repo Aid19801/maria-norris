@@ -42,6 +42,7 @@ export const MainContextProvider: React.FC = ({ children }) => {
   }, [isLoading]);
   React.useEffect(() => {
     if (!isLoading) {
+      console.log("1 router.asPath true ", router.asPath);
       setIsLoading(true);
     }
   }, [router.asPath]);

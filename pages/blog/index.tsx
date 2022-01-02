@@ -7,6 +7,7 @@ import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { BlogCard } from "../../components/BlogCard";
+import Head from "next/head";
 
 type Props = {
   data: any;
@@ -21,6 +22,36 @@ const PageBlogIndex = ({ data }: Props) => {
   }
   return (
     <Layout title="Blog Index Page">
+      <Head>
+        <title>Funk-27 | Blog</title>
+        <link rel="icon" href="/favicon.ico" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={data.twitter_image.url} />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta
+          property="og:title"
+          //@ts-ignore
+          content={`Funk-27 | Blog`}
+          key="title"
+        />
+
+        <meta
+          property="og:description"
+          //@ts-ignore
+          content="Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from."
+          key="description"
+        />
+
+        <meta
+          property="og:image"
+          //@ts-ignore
+          content={data.twitter_image.url}
+          key="seo blog share image"
+        />
+      </Head>
       <Typography
         variant="h1"
         color="secondary"
@@ -71,8 +102,10 @@ export const getStaticProps: GetStaticProps = async () => {
       "blog-page.blog-image-1",
       "blog-page.blog-image-2",
       "blog-page.date",
+      // "blog-page.twitter_image",
     ],
   });
+  console.log("data is ===> ", data);
   return { props: { data } };
 };
 

@@ -24,6 +24,7 @@ import Image from "next/image";
 import { MuiDivider } from "../../components/MuiDivider";
 import { BadgeAvatar } from "../../components/Badge";
 import { Facebook, Twitter } from "@mui/icons-material";
+import Head from "next/head";
 
 type Props = {
   data: any;
@@ -56,6 +57,39 @@ const PageBlog = ({ data }: Props) => {
 
   return (
     <Layout title={headline}>
+      <Head>
+        <title>{data.data["blog-title"][0].text}</title>
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta
+          name="twitter:image" //@ts-ignore
+          content={data.data["blog-image-1"].twitter.url}
+        />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta
+          property="og:title"
+          //@ts-ignore
+          content={`Funk-27 | ${data.data["blog-title"][0].text}`}
+          key="title"
+        />
+
+        <meta
+          property="og:description"
+          //@ts-ignore
+          content={data.data["blog-body"][0].text}
+          key="description"
+        />
+
+        <meta
+          property="og:image"
+          //@ts-ignore
+          content={data.data["blog-image-1"].twitter.url}
+          key="seo share image"
+        />
+      </Head>
       <Grid container spacing={2} className="blog__container">
         <Grid
           item

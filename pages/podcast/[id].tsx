@@ -21,6 +21,7 @@ import {
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Facebook, Podcasts, YouTube } from "@mui/icons-material";
+import Head from "next/head";
 type Props = {
   data: any;
 };
@@ -36,6 +37,36 @@ const PagePodcast = ({ data }: Props) => {
   }
   return (
     <Layout title={`Podcast | ${data.title1[0].text}`}>
+      <Head>
+        <title>{data.title1[0].text}</title>
+        <link rel="icon" href="/favicon.ico" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={data["podc_ep_twitter_img"].url} />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta
+          property="og:title"
+          //@ts-ignore
+          content={`F27 | Aid Thompsin & Other Disappointments`}
+          key="title"
+        />
+
+        <meta
+          property="og:description"
+          //@ts-ignore
+          content={data.description[0].text}
+          key="description"
+        />
+
+        <meta
+          property="og:image"
+          //@ts-ignore
+          content={data["podc_ep_twitter_img"].url}
+          key="seo blog share image"
+        />
+      </Head>
       <Typography
         variant="h1"
         color="secondary"

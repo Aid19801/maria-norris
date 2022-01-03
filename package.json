@@ -2,6 +2,10 @@
   "name": "funk27_v3",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "15.14.0",
+    "npm": "7.7.6"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",

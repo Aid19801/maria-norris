@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@mui/material/styles";
 // import styles from "./footer.module.scss";
 import Link from "next/link";
-import { Box, Divider, Typography, useMediaQuery } from "@mui/material";
+import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import { MuiDivider } from "./MuiDivider";
 
 // CONTENT
@@ -106,115 +106,104 @@ export function Footer(): ReactElement {
   };
   return (
     <React.Fragment>
-      <Box
-        sx={{
-          p: 2,
-        }}
-      >
-        <Box>
-          <Link href="/">
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Box>
+            <Link href="/">
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  ml: 2,
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: "5vh",
+                    marginLeft: 0,
+                    marginBottom: 0,
+                    color: "grey",
+                    fontWeight: 400,
+                  }}
+                >
+                  F
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: "5vh",
+                    marginTop: 0,
+                    marginBottom: 0,
+                    color: "orange",
+                    fontWeight: 400,
+                  }}
+                >
+                  27
+                </Typography>
+              </Box>
+            </Link>
+          </Box>
+
+          <Divider sx={{ my: 2 }} />
+        </Grid>
+        <Grid item xs={4} md={3}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            {footerLinksLeft.map((each) => (
+              <Link href={each.link}>
+                <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
+                  {each.text}
+                </Typography>
+              </Link>
+            ))}
+          </Box>
+        </Grid>
+        <Grid item xs={4} md={3}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            {footerLinksCenter.map((each) => (
+              <Link href={each.link}>
+                <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
+                  {each.text}
+                </Typography>
+              </Link>
+            ))}
+          </Box>
+        </Grid>
+        <Grid item xs={4} md={3}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            {footerLinksRight.map((each) => (
+              <Link href={each.link}>
+                <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
+                  {each.text}
+                </Typography>
+              </Link>
+            ))}
+          </Box>
+        </Grid>
+
+        {isDesktop && (
+          <Grid item md={3}>
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
+                justifyContent: "center",
                 alignItems: "center",
-                justifyContent: "flex-start",
-                ml: 2,
+                // visibility: isDesktop ? "inherit" : "hidden",
+                px: 2,
+                // width: isDesktop ? "50%" : "0%",
+                // border: "1px solid red",
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: "5vh",
-                  marginLeft: 0,
-                  marginBottom: 0,
-                  color: "grey",
-                  fontWeight: 400,
-                }}
-              >
-                F
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: "5vh",
-                  marginTop: 0,
-                  marginBottom: 0,
-                  color: "orange",
-                  fontWeight: 400,
-                }}
-              >
-                27
+              <Typography variant="h3" sx={{ color: "rgb(219 214 214)" }}>
+                Discontent Providers
               </Typography>
             </Box>
-          </Link>
-        </Box>
-
-        <Divider sx={{ my: 2 }} />
-
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              px: 2,
-              width: isDesktop ? "50%" : "90%",
-              // border: "1px solid red",
-            }}
-          >
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              {footerLinksLeft.map((each) => (
-                <Link href={each.link}>
-                  <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
-                    {each.text}
-                  </Typography>
-                </Link>
-              ))}
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              {footerLinksCenter.map((each) => (
-                <Link href={each.link}>
-                  <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
-                    {each.text}
-                  </Typography>
-                </Link>
-              ))}
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              {footerLinksRight.map((each) => (
-                <Link href={each.link}>
-                  <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
-                    {each.text}
-                  </Typography>
-                </Link>
-              ))}
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              visibility: isDesktop ? "inherit" : "hidden",
-              px: 2,
-              width: isDesktop ? "50%" : "0%",
-              // border: "1px solid red",
-            }}
-          >
-            <Typography variant="h3" sx={{ color: "rgb(219 214 214)" }}>
-              Discontent Providers
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
+          </Grid>
+        )}
+      </Grid>
     </React.Fragment>
   );
 }

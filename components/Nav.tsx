@@ -79,18 +79,24 @@ export default function Nav() {
           background: (theme) => theme.palette.secondary.light,
         }}
       >
-        <Link href="/">
-          <Box
-            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-          >
-            <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
-              Funk-
-            </Typography>
-            <Typography sx={{ mb: 2, color: "orange" }} variant="h4">
-              27
-            </Typography>
-          </Box>
-        </Link>
+        {isOpen && (
+          <Link href="/">
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
+                Funk-
+              </Typography>
+              <Typography sx={{ mb: 2, color: "orange" }} variant="h4">
+                27
+              </Typography>
+            </Box>
+          </Link>
+        )}
 
         <Divider light />
 

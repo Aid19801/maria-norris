@@ -33,8 +33,8 @@ const IndexPage = () => {
 
         <meta
           property="og:image"
-          content="/shedShot.png"
-          key="seo blog share image"
+          content="/podcast_studio1.jpg"
+          key="funk27 podcast microphone"
         />
       </Head>
       <Box

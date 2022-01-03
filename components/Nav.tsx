@@ -94,7 +94,11 @@ export default function Nav() {
 
         <Divider light />
 
-        <List component="nav" aria-label="mailbox folders">
+        <List
+          component="nav"
+          aria-label="mailbox folders"
+          sx={{ visibility: isOpen ? "inherit" : "none" }}
+        >
           {navOptions.map((eachOption, i) => {
             return (
               <React.Fragment key={eachOption}>

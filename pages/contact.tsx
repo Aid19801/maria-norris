@@ -15,6 +15,7 @@ import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
 import { BadgeAvatar } from "../components/Badge";
 import ContactForm from "../components/ContactForm";
+import Head from "next/head";
 
 const ContactPage = () => {
   const { toggleLoading, isLoading } = useMainContext();
@@ -25,6 +26,35 @@ const ContactPage = () => {
   toggleLoading(false);
   return (
     <Layout title="Funk-27 | Contact">
+      <Head>
+        <title>F27 | Contact Us</title>
+        <link rel="icon" href="/favicon.ico" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/shedShot.png" />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta
+          property="og:title"
+          //@ts-ignore
+          content={`Funk-27 | Contact`}
+          key="title"
+        />
+
+        <meta
+          property="og:description"
+          //@ts-ignore
+          content="Contact Funk-27 to discuss the AT // OD podcast, one of our blogs or even the weather. Weather emails may not get a response."
+          key="description"
+        />
+
+        <meta
+          property="og:image"
+          content="/shedShot.png"
+          key="seo contact us"
+        />
+      </Head>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box

@@ -5,6 +5,7 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useMainContext } from "../context/main";
 import { Modal } from "./Modal";
+import Footer from "./Footer";
 
 type Props = {
   children?: ReactNode;
@@ -35,6 +36,7 @@ const Layout = ({
       >
         {isLoading ? <Modal /> : children}
       </Box>
+      <Footer />
     </div>
   );
 };

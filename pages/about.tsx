@@ -7,6 +7,7 @@ import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
 import { BadgeAvatar } from "../components/Badge";
+import Head from "next/head";
 
 const asSeenOnImgs = [
   "https://cdn-radiotime-logos.tunein.com/s17569g.png",
@@ -25,6 +26,36 @@ const AboutPage = () => {
   toggleLoading(false);
   return (
     <Layout title="Funk-27 | About">
+      <Head>
+        <title>F27 | About</title>
+        <link rel="icon" href="/favicon.ico" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/shedShot.png" />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta
+          property="og:title"
+          //@ts-ignore
+          content={`Funk-27 | About`}
+          key="title"
+        />
+
+        <meta
+          property="og:description"
+          //@ts-ignore
+          content="Discontent Providers of podcasts, blogs and all things contenty. Check out the weekly humorous blogs about Politics and Dystopia"
+          key="description"
+        />
+
+        <meta
+          property="og:image"
+          content="/shedShot.png"
+          key="seo blog share image"
+        />
+      </Head>
+
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box

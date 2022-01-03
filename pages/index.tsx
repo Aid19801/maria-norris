@@ -3,12 +3,40 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Typography } from "@mui/material";
+import Head from "next/head";
 
 const IndexPage = () => {
   const { toggleLoading } = useMainContext();
   toggleLoading(false);
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title="Funk-27 | Disconent Providers">
+      <Head>
+        <title>F27 | About</title>
+        <link rel="icon" href="/favicon.ico" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/shedShot.png" />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta
+          property="og:title"
+          content={`Funk-27 | Disconent Providers`}
+          key="title"
+        />
+
+        <meta
+          property="og:description"
+          content="Discontent Providers | new media platform (or web-app) serving up Podcasts and Blogs that attempt to make sense of the senseless. In a delightfully c*nty way."
+          key="description"
+        />
+
+        <meta
+          property="og:image"
+          content="/shedShot.png"
+          key="seo blog share image"
+        />
+      </Head>
       <Box
         sx={{
           height: "90vh",

@@ -25,6 +25,7 @@ export const MainContextProvider: React.FC = ({ children }) => {
   const [pages, setPages] = React.useState(null);
   const router = useRouter();
   const fetchAllPages = async () => {
+    // @ts-ignore
     const endpoint = prismic.getEndpoint("funk27");
     const client = prismic.createClient(endpoint, { fetch });
     const { results } = await client.getByType("page");

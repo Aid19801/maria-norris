@@ -228,6 +228,7 @@ const PageBlog = ({ data }: Props) => {
 };
 
 export async function getServerSideProps(context: any) {
+  // @ts-ignore
   const endpoint = prismic.getEndpoint("funk27");
   const client = prismic.createClient(endpoint, { fetch });
   const data = await client.getByUID("blog-page", context.params.id);

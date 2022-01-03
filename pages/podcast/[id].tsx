@@ -173,10 +173,10 @@ const PagePodcast = ({ data }: Props) => {
 
 export async function getServerSideProps(context: any) {
   // @ts-ignore
-  const endpoint = prismic.getEndpoint("funk27");
+  const endpoint: any = prismic.getEndpoint("funk27");
   // @ts-ignore
-  const client = prismic.createClient(endpoint, { fetch });
-  const allPodcastData = await client.getByUID("page", "podcast");
+  const client: any = prismic.createClient(endpoint, { fetch });
+  const allPodcastData: any = await client.getByUID("page", "podcast");
 
   const firstSeason = allPodcastData.data.body[0].items;
   const secondSeason = allPodcastData.data.body[1].items;

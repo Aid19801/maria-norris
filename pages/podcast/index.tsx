@@ -298,18 +298,10 @@ const PagePodcastIndex = ({ data }: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   // @ts-ignore
-  const endpoint = prismic.getEndpoint("funk27");
+  const endpoint: any = prismic.getEndpoint("funk27");
   // @ts-ignore
-  const client = prismic.createClient(endpoint, { fetch });
-  const { data } = await client.getByUID("page", "podcast", {
-    // fetchLinks: [
-    //   "blog-page.blog-title",
-    //   "blog-page.blog-body",
-    //   "blog-page.blog-image-1",
-    //   "blog-page.blog-image-2",
-    //   "blog-page.date",
-    // ],
-  });
+  const client: any = prismic.createClient(endpoint, { fetch });
+  const { data } = await client.getByUID("page", "podcast");
   return { props: { data } };
 };
 

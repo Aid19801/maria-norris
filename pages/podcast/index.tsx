@@ -1,13 +1,13 @@
+import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
-import * as prismic from "@prismicio/client";
+import { getEndpoint, createClient } from "@prismicio/client";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
 import {
   Box,
   Card,
   CardContent,
-  Divider,
   Grid,
   Grow,
   Typography,
@@ -298,9 +298,9 @@ const PagePodcastIndex = ({ data }: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   // @ts-ignore
-  const endpoint: any = prismic.getEndpoint("funk27");
+  const endpoint: any = getEndpoint("funk27");
   // @ts-ignore
-  const client: any = prismic.createClient(endpoint, { fetch });
+  const client: any = createClient(endpoint, { fetch });
   const { data } = await client.getByUID("page", "podcast");
   return { props: { data } };
 };

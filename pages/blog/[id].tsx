@@ -1,14 +1,9 @@
-import { GetStaticProps } from "next";
-import Link from "next/link";
+import * as React from "react";
 import fetch from "node-fetch";
-import * as prismic from "@prismicio/client";
+import { getEndpoint, createClient } from "@prismicio/client";
 import { RichText } from "prismic-reactjs";
-import { User } from "../../interfaces";
-import { sampleUserData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
-import List from "../../components/List";
 import { useMainContext } from "../../context/main";
-import { PrismicRichText } from "@prismicio/react";
 import {
   Box,
   Button,
@@ -229,9 +224,9 @@ const PageBlog = ({ data }: Props) => {
 
 export async function getServerSideProps(context: any) {
   // @ts-ignore
-  const endpoint: any = prismic.getEndpoint("funk27");
+  const endpoint: any = getEndpoint("funk27");
   // @ts-ignore
-  const client: any = prismic.createClient(endpoint, { fetch });
+  const client: any = createClient(endpoint, { fetch });
   const data: any = await client.getByUID("blog-page", context.params.id);
   return { props: { data } };
 }

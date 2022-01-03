@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useRouter } from "next/router";
-import * as prismic from "@prismicio/client";
+import { getEndpoint, createClient } from "@prismicio/client";
 import fetch from "node-fetch";
 
 type State = {
@@ -26,9 +26,9 @@ export const MainContextProvider: React.FC = ({ children }) => {
   const router = useRouter();
   const fetchAllPages = async () => {
     // @ts-ignore
-    const endpoint: any = prismic.getEndpoint("funk27");
+    const endpoint: any = getEndpoint("funk27");
     // @ts-ignore
-    const client: any = prismic.createClient(endpoint, { fetch });
+    const client: any = createClient(endpoint, { fetch });
     const { results } = await client.getByType("page");
     setPages(results);
   };
@@ -39,19 +39,13 @@ export const MainContextProvider: React.FC = ({ children }) => {
   React.useEffect(() => {
     fetchAllPages();
   }, []);
-  React.useEffect(() => {
-    console.log("isLoading is ", isLoading);
-  }, [isLoading]);
+  React.useEffect(() => {}, [isLoading]);
   React.useEffect(() => {
     if (!isLoading) {
-      console.log("1 router.asPath true ", router.asPath);
       setIsLoading(true);
     }
   }, [router.asPath]);
 
-  //   console.log("route ", router.route);
-  //   console.log("pathname ", router.pathname);
-  //   console.log("asPath ", router.asPath);
   return (
     <MainContext.Provider
       value={{

@@ -1,13 +1,8 @@
 import * as React from "react";
-import { GetStaticProps } from "next";
-import Link from "next/link";
 import fetch from "node-fetch";
-import * as prismic from "@prismicio/client";
+import { getEndpoint, createClient } from "@prismicio/client";
 import { useTheme } from "@mui/material/styles";
-import { User } from "../../interfaces";
-import { sampleUserData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
-import List from "../../components/List";
 import { useMainContext } from "../../context/main";
 import {
   Typography,
@@ -173,9 +168,9 @@ const PagePodcast = ({ data }: Props) => {
 
 export async function getServerSideProps(context: any) {
   // @ts-ignore
-  const endpoint: any = prismic.getEndpoint("funk27");
+  const endpoint: any = getEndpoint("funk27");
   // @ts-ignore
-  const client: any = prismic.createClient(endpoint, { fetch });
+  const client: any = createClient(endpoint, { fetch });
   const allPodcastData: any = await client.getByUID("page", "podcast");
 
   const firstSeason = allPodcastData.data.body[0].items;

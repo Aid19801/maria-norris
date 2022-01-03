@@ -1,23 +1,14 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
-import Link from "next/link";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
-import {
-  Box,
-  Button,
-  Divider,
-  Grid,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import Image from "next/image";
+import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
+
 import { MuiDivider } from "../components/MuiDivider";
-import { BadgeAvatar } from "../components/Badge";
 import ContactForm from "../components/ContactForm";
 import Head from "next/head";
 
-const ContactPage = () => {
+export const ContactPage = () => {
   const { toggleLoading, isLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

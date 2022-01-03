@@ -17,7 +17,7 @@ const asSeenOnImgs = [
   "https://www.chortle.co.uk/images/photos/small/leicester-square-theatre.jpg",
   "https://www.logo-designer.co/wp-content/uploads/2017/04/2017-huffpost-new-logo-design-2.png",
 ];
-const AboutPage = () => {
+export const AboutPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

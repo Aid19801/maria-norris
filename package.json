@@ -1,9 +1,11 @@
 {
+  "name": "funk27_v3",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "type-check": "tsc"
   },
   "dependencies": {

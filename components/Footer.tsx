@@ -12,10 +12,6 @@ import Link from "next/link";
 import { Box, Divider, Typography, useMediaQuery } from "@mui/material";
 import { MuiDivider } from "./MuiDivider";
 
-export interface Props {
-  darkMode: boolean;
-}
-
 // CONTENT
 const footerLinksRight = [
   {
@@ -79,7 +75,7 @@ const footerLinksLeft = [
     link: "https://www.linkedin.com/company/funk-27",
   },
 ];
-export function Footer({ darkMode }: Props): ReactElement {
+export function Footer(): ReactElement {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const handleClick = (location: string) => {

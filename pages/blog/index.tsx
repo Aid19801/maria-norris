@@ -95,6 +95,7 @@ const PageBlogIndex = ({ data }: Props) => {
 export const getStaticProps: GetStaticProps = async () => {
   // @ts-ignore
   const endpoint = prismic.getEndpoint("funk27");
+  // @ts-ignore
   const client = prismic.createClient(endpoint, { fetch });
   const { data } = await client.getByUID("page", "blog-home-page", {
     fetchLinks: [

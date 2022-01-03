@@ -174,6 +174,7 @@ const PagePodcast = ({ data }: Props) => {
 export async function getServerSideProps(context: any) {
   // @ts-ignore
   const endpoint = prismic.getEndpoint("funk27");
+  // @ts-ignore
   const client = prismic.createClient(endpoint, { fetch });
   const allPodcastData = await client.getByUID("page", "podcast");
 

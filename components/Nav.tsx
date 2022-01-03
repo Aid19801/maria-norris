@@ -97,7 +97,7 @@ export default function Nav() {
         <List
           component="nav"
           aria-label="mailbox folders"
-          sx={{ visibility: isOpen ? "inherit" : "none" }}
+          sx={{ visibility: isOpen ? "visible" : "hidden" }}
         >
           {navOptions.map((eachOption, i) => {
             return (

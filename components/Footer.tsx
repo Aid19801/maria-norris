@@ -152,7 +152,7 @@ export function Footer(): ReactElement {
         <Grid item xs={4} md={3}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {footerLinksLeft.map((each) => (
-              <Link href={each.link}>
+              <Link key={each.link} href={each.link}>
                 <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
                   {each.text}
                 </Typography>
@@ -163,7 +163,7 @@ export function Footer(): ReactElement {
         <Grid item xs={4} md={3}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {footerLinksCenter.map((each) => (
-              <Link href={each.link}>
+              <Link key={each.link} href={each.link}>
                 <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
                   {each.text}
                 </Typography>
@@ -174,7 +174,7 @@ export function Footer(): ReactElement {
         <Grid item xs={4} md={3}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {footerLinksRight.map((each) => (
-              <Link href={each.link}>
+              <Link key={each.link} href={each.link}>
                 <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
                   {each.text}
                 </Typography>

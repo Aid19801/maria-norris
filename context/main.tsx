@@ -23,7 +23,8 @@ export const useMainContext = (): React.ContextType<typeof MainContext> =>
 export const MainContextProvider: React.FC = ({ children }) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [pages, setPages] = React.useState(null);
-  const router = useRouter();
+
+  // const router = useRouter();
   const fetchAllPages = async () => {
     // @ts-ignore
     const endpoint: any = getEndpoint("funk27");
@@ -36,15 +37,14 @@ export const MainContextProvider: React.FC = ({ children }) => {
   const toggleLoading = (bool) => {
     setIsLoading(bool);
   };
+
   React.useEffect(() => {
     fetchAllPages();
   }, []);
-  React.useEffect(() => {}, [isLoading]);
+
   React.useEffect(() => {
-    if (!isLoading) {
-      setIsLoading(true);
-    }
-  }, [router.asPath]);
+    console.log("isLoading: ", isLoading);
+  }, [isLoading]);
 
   return (
     <MainContext.Provider

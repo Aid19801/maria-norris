@@ -17,9 +17,13 @@ const PageBlogIndex = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const { toggleLoading } = useMainContext();
-  if (data) {
-    toggleLoading(false);
-  }
+
+  React.useEffect(() => {
+    console.log("PAGE BLOG INDEX CHANGED [data]");
+    if (data) {
+      toggleLoading(false);
+    }
+  }, [data]);
   return (
     <Layout title="Blog Index Page">
       <Head>

@@ -43,12 +43,15 @@ const PageBlog = ({ data }: Props) => {
   const blogDate = new Date(data.first_publication_date)
     .toString()
     .slice(0, 15);
-  console.log("blogDate", blogDate);
 
   const { toggleLoading } = useMainContext();
-  if (data) {
-    toggleLoading(false);
-  }
+
+  React.useEffect(() => {
+    console.log("BLOG[id] CHANGED [data]");
+    if (data && data.data["blog-title"]) {
+      toggleLoading(false);
+    }
+  }, [data]);
 
   return (
     <Layout title={headline}>

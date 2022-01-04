@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { PodcastCard } from "../../components/PodcastCard";
-import { BadgeAvatar } from "../../components/Badge";
 import { MuiDivider } from "../../components/MuiDivider";
 import Link from "next/link";
 import Head from "next/head";
@@ -29,10 +28,15 @@ const PagePodcastIndex = ({ data }: Props) => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const mostRecentEpisode = data?.body[0].items[0];
   const secondMostRecentEpisode = data?.body[0].items[1];
+
   const { toggleLoading } = useMainContext();
-  if (data) {
-    toggleLoading(false);
-  }
+
+  React.useEffect(() => {
+    console.log("PAGE PODCAST INDEX CHANGED [data]");
+    if (data) {
+      toggleLoading(false);
+    }
+  }, [data]);
   return (
     <Layout title="Funk-27 | Podcasts">
       <Head>

@@ -11,8 +11,7 @@ const IndexPage = () => {
   return (
     <Layout title="Funk-27 | Disconent Providers">
       <Head>
-        <title>F27 | About</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>F27 | Discontent Providers</title>
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/shedShot.png" />

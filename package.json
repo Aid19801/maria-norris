@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start_old": "next start -p $PORT",
+    "start": "NODE_ENV=production node server.js -p $PORT",
     "type-check": "tsc"
   },
   "dependencies": {

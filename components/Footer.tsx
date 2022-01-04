@@ -106,7 +106,7 @@ export function Footer(): ReactElement {
   };
   return (
     <React.Fragment>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{ bgcolor: "white" }}>
         <Grid item xs={12}>
           <Box>
             <Link href="/">

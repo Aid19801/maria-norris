@@ -28,6 +28,51 @@ const Layout = ({
       </Head>
       <Nav />
       <Box
+        className="box-yo-1"
+        sx={{
+          background: "#f1a66d",
+          clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
+          position: "fixed",
+          opacity: 0.1,
+          height: 300,
+          width: 300,
+          transform: "skewX(2deg)",
+          zIndex: -1,
+        }}
+      />
+
+      <Box
+        className="box-yo-2"
+        sx={{
+          background: "#f1a66d",
+          clipPath: "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
+          position: "fixed",
+          opacity: 0.1,
+          height: 300,
+          width: 300,
+          transform: "skewX(154deg)",
+          bottom: isMobile ? "-12%" : null,
+          left: isMobile ? "4%" : null,
+          right: isMobile ? null : "4%",
+          zIndex: -1,
+        }}
+      />
+      <Box
+        className="box-yo-3"
+        sx={{
+          background: "#f1a66d",
+          clipPath: "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
+          position: "fixed",
+          opacity: 0.1,
+          height: 300,
+          width: 300,
+          transform: "skewX(100deg)",
+          bottom: isMobile ? "16%" : "25%",
+          left: "24%",
+          zIndex: -1,
+        }}
+      />
+      <Box
         sx={{
           mb: "200px",
           ml: 2,

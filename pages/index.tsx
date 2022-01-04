@@ -7,9 +7,19 @@ import Head from "next/head";
 
 const IndexPage = () => {
   const { toggleLoading } = useMainContext();
+  const [showBrand, setShowBrand] = React.useState<boolean>(false);
   toggleLoading(false);
+
+  React.useEffect(() => {
+    // setShowBrand(true);
+    console.log("loaded fired");
+    setTimeout(() => {
+      console.log("showing brand now");
+      setShowBrand(true);
+    }, 1000);
+  }, []);
   return (
-    <Layout title="Funk-27 | Disconent Providers">
+    <Layout title="Funk-27 | Discontent Providers">
       <Head>
         <title>F27 | Discontent Providers</title>
 
@@ -20,7 +30,7 @@ const IndexPage = () => {
 
         <meta
           property="og:title"
-          content={`Funk-27 | Disconent Providers`}
+          content={`Funk-27 | Discontent Providers`}
           key="title"
         />
 
@@ -49,12 +59,35 @@ const IndexPage = () => {
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Typography variant="h1">Funk-</Typography>
-          <Typography variant="h1" sx={{ color: "orange", fontWeight: "bold" }}>
+          <Typography
+            variant="h1"
+            sx={{
+              transition: "300ms",
+              opacity: showBrand ? 1 : 0,
+            }}
+          >
+            Funk-
+          </Typography>
+          <Typography
+            variant="h1"
+            sx={{
+              color: "orange",
+              fontWeight: "bold",
+              transition: "600ms",
+              opacity: showBrand ? 1 : 0,
+            }}
+          >
             27
           </Typography>
         </Box>
-        <Typography variant="body1" sx={{ color: "lightgrey" }}>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "lightgrey",
+            transition: "900ms",
+            opacity: showBrand ? 1 : 0,
+          }}
+        >
           Discontent Providers
         </Typography>
       </Box>

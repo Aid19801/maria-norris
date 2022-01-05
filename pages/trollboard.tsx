@@ -52,7 +52,7 @@ const PageTrollboard: React.FC = () => {
       redirect: "follow",
     };
     // @ts-ignore
-    fetch("http://localhost:5000/comment", requestOptions)
+    fetch(`${COMMENTS_API}/comment`, requestOptions)
       .then((response) => response.json())
       .then((json) => {
         if (json.status === 200) {

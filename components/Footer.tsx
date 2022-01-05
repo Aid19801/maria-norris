@@ -1,13 +1,5 @@
 import React, { ReactElement } from "react";
-import {
-  faFacebookF,
-  faTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@mui/material/styles";
-// import styles from "./footer.module.scss";
 import Link from "next/link";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import { MuiDivider } from "./MuiDivider";

@@ -117,7 +117,7 @@ const PageTrollboard: React.FC = () => {
 
           <meta
             property="og:image"
-            content="/podcast_studio1.jpg"
+            content="/trollboardPic.jpg"
             key="funk27 podcast microphone"
           />
         </Head>

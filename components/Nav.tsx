@@ -14,7 +14,14 @@ import { useRouter } from "next/router";
 import { useMainContext } from "../context/main";
 import Link from "next/link";
 
-const navOptions = ["podcast", "blog", "contact", "about", "socials"];
+const navOptions = [
+  "podcast",
+  "blog",
+  "contact",
+  "about",
+  "socials",
+  "trollboard",
+];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);

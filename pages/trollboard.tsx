@@ -5,8 +5,6 @@ import {
   Card,
   Typography,
   useMediaQuery,
-  TextField,
-  Button,
   Alert,
   Grow,
 } from "@mui/material";
@@ -14,8 +12,9 @@ import { useTheme } from "@mui/material/styles";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import { useMainContext } from "../context/main";
+import TrollBoardForm from "../components/TrollBoardForm";
 
-const COMMENTS_API = "http://localhost:5000";
+const COMMENTS_API = "https://trollboard-api.herokuapp.com";
 
 const FONTS = ["monospace", "Arial", "Oswald", "CURSIVE"];
 const COLORS = [
@@ -31,24 +30,44 @@ const PageTrollboard: React.FC = () => {
   const [comments, setAllComments] = React.useState<
     null | { id: string; text: string; user: string }[]
   >(null);
-  const [text, setText] = React.useState<string>("");
-  const [name, setName] = React.useState<string>("");
+  //   const [text, setText] = React.useState<string>("");
+  //   const [name, setName] = React.useState<string>("");
   const [error, setError] = React.useState<null | string>(null);
   const { toggleLoading } = useMainContext();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // post to MongoDB
 
-    setText("");
-    setName("");
-  };
+  const handleSubmit = async (name, text) => {
+    toggleLoading(true);
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer fuck off you twat`);
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-  const handleChangeName = (event) => {
-    setName(event.target.value);
-  };
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("user", name);
+    urlencoded.append("text", text);
 
-  const handleChangeText = (event) => {
-    setText(event.target.value);
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+    // @ts-ignore
+    fetch("http://localhost:5000/comment", requestOptions)
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.status === 200) {
+          toggleLoading(false);
+          setError(null);
+          setTimeout(() => {
+            fetchAllComments();
+          }, 300);
+        }
+      })
+      .catch((error) => {
+        console.log("error ", error);
+        toggleLoading(false);
+        setError("Oh no, a problem occurred - try later or tweet @aidThompsin");
+      });
   };
 
   const fetchAllComments = async () => {
@@ -56,7 +75,7 @@ const PageTrollboard: React.FC = () => {
     try {
       const res = await fetch(`${COMMENTS_API}/comments`);
       const json = await res.json();
-      setAllComments(json.comments);
+      setAllComments(json.comments.reverse());
       toggleLoading(false);
     } catch (error) {
       setAllComments(null);
@@ -128,6 +147,7 @@ const PageTrollboard: React.FC = () => {
                 <Box
                   className="whiteboard"
                   sx={{
+                    overflow: "scroll",
                     width: isMobile ? "100%" : "70%",
                     height: isMobile ? "50vh" : "500px",
                     border: "1px solid rgba(0, 0, 0, 0.1)",
@@ -135,6 +155,10 @@ const PageTrollboard: React.FC = () => {
                     bgcolor: "grey",
                     position: "relative",
                     contain: "content",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
                   {comments &&
@@ -144,25 +168,21 @@ const PageTrollboard: React.FC = () => {
                       );
                       return (
                         <Box
+                          key={each.text}
                           sx={{
                             display: "flex",
                             flexDirection: "column",
-                            position: "absolute",
-                            top: `${Math.round(Math.random() * 386)}px`,
-                            left: isMobile
-                              ? `${(i + 5) * 4}px`
-                              : `${(i + 1) * 100}px`,
-                            zIndex: 100000,
                           }}
                         >
                           <Typography
                             variant="body1"
                             sx={{
-                              p: 1,
+                              p: 4,
+                              borderRadius: 25,
                               color: "black",
                               transform: `rotate(${randomTransformNumber}deg)`,
                               fontSize: isMobile
-                                ? `${Math.round(5 + Math.random() * 12)}px`
+                                ? `${Math.round(10 + Math.random() * 12)}px`
                                 : `${Math.round(9 + Math.random() * 22)}px`,
                               background: COLORS[Math.round(Math.random() * 3)],
                               fontFamily: FONTS[i] || "Arial",
@@ -170,7 +190,7 @@ const PageTrollboard: React.FC = () => {
                           >
                             {each.text}
                             <br />
-                            <strong>{each.user}</strong>
+                            <strong> - {each.user}</strong>
                           </Typography>
                         </Box>
                       );
@@ -184,41 +204,7 @@ const PageTrollboard: React.FC = () => {
                     </Alert>
                   </Grow>
                 )}
-                <form
-                  className="whiteboard__form"
-                  style={{
-                    display: "flex",
-                    width: isMobile ? "100%" : "70%",
-                    flexDirection: "column",
-                    marginTop: 16,
-                    marginBottom: 16,
-                  }}
-                  onSubmit={handleSubmit}
-                >
-                  <TextField
-                    label="Your name"
-                    id="trollboard__user"
-                    variant="outlined"
-                    value={name}
-                    onChange={handleChangeName}
-                    sx={{ mb: 2 }}
-                  />
-                  <TextField
-                    id="trollboard__text"
-                    label="Type trolly comments here...."
-                    variant="outlined"
-                    value={text}
-                    onChange={handleChangeText}
-                  />
-                  <Button
-                    disabled={text === "" || name === ""}
-                    type="submit"
-                    variant="contained"
-                    sx={{ mt: 2 }}
-                  >
-                    Submit
-                  </Button>
-                </form>
+                <TrollBoardForm onSubmit={handleSubmit} />
               </Box>
             </Card>
           </Grid>

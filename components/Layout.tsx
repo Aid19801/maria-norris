@@ -75,7 +75,6 @@ const Layout = ({
       <Box
         sx={{
           mb: "200px",
-          ml: 2,
           maxWidth: "95vw",
         }}
       >

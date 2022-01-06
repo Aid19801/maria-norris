@@ -97,28 +97,30 @@ const PageTrollboard: React.FC = () => {
       <Layout title="Funk-27 | Trollboard">
         <Head>
           <title>F27 | Trollboard</title>
-
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image" content="/shedShot.png" />
+          <meta name="twitter:image" content="/f27_troll.jpg" />
+          <meta
+            name="twitter:image:alt"
+            content="funk27 logo but with a troll face on it"
+          />
           <meta name="twitter:creator" content="@aidThompsin" />
           <meta name="twitter:site" content="@aidThompsin" />
-
+          <meta property="twitter:title" content="Funk-27 | Trollboard" />
+          s
           <meta
             property="og:title"
             content={`Funk-27 | Trollboard`}
             key="title"
           />
-
           <meta
             property="og:description"
-            content="Gotta problem with the way I do things? Or how I look? Well, Buster Brown, you can just go ahead and put it on this whiteboard to make me cry."
+            content="Finally internet trolls have a safe space on the web. Yep, this is effectively a whiteboard for trolls. You can troll away to your heart's content and literally all that will happen is I'll cry."
             key="description"
           />
-
           <meta
             property="og:image"
-            content="/trollboardPic.jpg"
-            key="funk27 podcast microphone"
+            content="/f27_troll.jpg"
+            key="funk27 troll podcast microphone"
           />
         </Head>
         <Grid container spacing={2}>

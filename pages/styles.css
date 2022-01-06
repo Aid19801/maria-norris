@@ -133,3 +133,24 @@
 .Tiktok__wrapper div video {
   border-radius: 25px;
 }
+
+span img.twitter__img {
+  height: 70px !important;
+  width: 70px !important;
+  position: revert !important;
+  border-radius: 50% !important;
+
+  min-width: 70px !important;
+  max-width: inherit !important;
+  min-height: inherit !important;
+  max-height: inherit !important;
+}
+
+.twitter__profilePicName > span > span {
+  border: 1px solid red;
+  display: none !important;
+}
+
+a.twitter__link {
+  text-decoration: none;
+}

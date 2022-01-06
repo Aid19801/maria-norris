@@ -13,7 +13,7 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import { useMainContext } from "../context/main";
 import TrollBoardForm from "../components/TrollBoardForm";
-
+import { useAnalytics } from "use-analytics";
 const COMMENTS_API = "https://trollboard-api.herokuapp.com";
 
 const FONTS = ["monospace", "Arial", "Oswald", "CURSIVE"];
@@ -30,8 +30,7 @@ const PageTrollboard: React.FC = () => {
   const [comments, setAllComments] = React.useState<
     null | { id: string; text: string; user: string }[]
   >(null);
-  //   const [text, setText] = React.useState<string>("");
-  //   const [name, setName] = React.useState<string>("");
+  const { page } = useAnalytics();
   const [error, setError] = React.useState<null | string>(null);
   const { toggleLoading } = useMainContext();
 
@@ -87,9 +86,10 @@ const PageTrollboard: React.FC = () => {
   };
   React.useEffect(() => {
     fetchAllComments();
+    page();
   }, []);
   React.useEffect(() => {
-    console.log("comments back ", comments);
+    // console.log("comments back ", comments);
   }, [comments]);
 
   return (

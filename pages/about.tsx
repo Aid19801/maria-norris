@@ -1,12 +1,11 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
-import Link from "next/link";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
-import { BadgeAvatar } from "../components/Badge";
+import { useAnalytics } from "use-analytics";
 import Head from "next/head";
 
 const asSeenOnImgs = [
@@ -21,8 +20,10 @@ export const AboutPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  // React.useEffect(() => {
-  // }, []);
+  const { page } = useAnalytics();
+  React.useEffect(() => {
+    page();
+  }, []);
   toggleLoading(false);
   return (
     <Layout title="Funk-27 | About">

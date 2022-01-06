@@ -1,6 +1,7 @@
 import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
+import { useAnalytics } from "use-analytics";
 import { RichText } from "prismic-reactjs";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
@@ -45,13 +46,17 @@ const PageBlog = ({ data }: Props) => {
     .slice(0, 15);
 
   const { toggleLoading } = useMainContext();
-
+  const { page } = useAnalytics();
   React.useEffect(() => {
     console.log("BLOG[id] CHANGED [data]");
     if (data && data.data["blog-title"]) {
       toggleLoading(false);
     }
   }, [data]);
+
+  React.useEffect(() => {
+    page();
+  }, []);
 
   return (
     <Layout title={headline}>

@@ -98,13 +98,16 @@ const PageTrollboard: React.FC = () => {
         <Head>
           <title>F27 | Trollboard</title>
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image" content="/f27_troll.jpg" />
+          <meta
+            name="twitter:image"
+            content="https://funk-27.co.uk/f27_troll.jpg"
+          />
+          <meta name="twitter:creator" content="@aidThompsin" />
+          <meta name="twitter:site" content="@aidThompsin" />
           <meta
             name="twitter:image:alt"
             content="funk27 logo but with a troll face on it"
           />
-          <meta name="twitter:creator" content="@aidThompsin" />
-          <meta name="twitter:site" content="@aidThompsin" />
           <meta property="twitter:title" content="Funk-27 | Trollboard" />
           s
           <meta
@@ -119,7 +122,7 @@ const PageTrollboard: React.FC = () => {
           />
           <meta
             property="og:image"
-            content="/f27_troll.jpg"
+            content="https://funk-27.co.uk/f27_troll.jpg"
             key="funk27 troll podcast microphone"
           />
         </Head>

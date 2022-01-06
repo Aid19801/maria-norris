@@ -42,21 +42,18 @@ const PagePodcast = ({ data }: Props) => {
 
         <meta
           property="og:title"
-          //@ts-ignore
           content={`F27 | Aid Thompsin & Other Disappointments`}
           key="title"
         />
 
         <meta
           property="og:description"
-          //@ts-ignore
           content={data.description[0].text}
           key="description"
         />
 
         <meta
           property="og:image"
-          //@ts-ignore
           content={data["podc_ep_twitter_img"].url}
           key="seo blog share image"
         />

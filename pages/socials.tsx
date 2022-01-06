@@ -5,6 +5,8 @@ import { useTheme } from "@mui/material/styles";
 import { BadgeAvatar } from "../components/Badge";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
+import TweetWall from "../components/TweetWall";
+import TiktokWall from "../components/TiktokWall";
 
 export const PageSocials: React.FC = () => {
   const theme = useTheme();
@@ -246,6 +248,12 @@ export const PageSocials: React.FC = () => {
               </Typography>
             </Box>
           </Card>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <TweetWall />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <TiktokWall />
         </Grid>
       </Grid>
     </Layout>

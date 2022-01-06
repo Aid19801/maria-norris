@@ -1,5 +1,36 @@
 import * as React from "react";
-import { Box, Card, Button, Divider } from "@mui/material";
+import { Box, Card, Button, Divider, Typography } from "@mui/material";
+import ReactPlayer from "react-player";
+
+interface EachTiktokProps {
+  caption: string;
+  views: string;
+  likes: string;
+  videoSrc: string;
+}
+export const EachTiktok: React.FC<EachTiktokProps> = ({
+  caption,
+  views,
+  likes,
+  videoSrc,
+}) => {
+  return (
+    <Box className="Tiktok__wrapper" sx={{ mb: 4 }}>
+      <ReactPlayer url={videoSrc} controls />
+      <Typography variant="body1" color="secondary">
+        {caption}
+      </Typography>
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Typography variant="body1" color="primary" sx={{ fontSize: 11 }}>
+          {views} views &nbsp;
+        </Typography>
+        <Typography variant="body1" color="primary" sx={{ fontSize: 11 }}>
+          {likes} likes
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
 
 export const TiktokWall: React.FC = () => {
   return (
@@ -10,7 +41,7 @@ export const TiktokWall: React.FC = () => {
           flexDirection: "row",
           alignItems: "baseline",
           justifyContent: "flex-start",
-          padding: "10px",
+          //   padding: 2,
         }}
       >
         <h1
@@ -47,195 +78,20 @@ export const TiktokWall: React.FC = () => {
           &nbsp; @aidThompsin
         </a>
       </Box>
-      <Divider sx={{}} />
-      <blockquote
-        className="tiktok-embed"
-        cite="https://www.tiktok.com/@aidthompsin/video/6953527493827579142"
-        data-video-id="6953527493827579142"
-        style={{ maxWidth: 605, minWidth: 325 }}
-      >
-        <section>
-          <a
-            target="_blank"
-            title="@aidthompsin"
-            href="https://www.tiktok.com/@aidthompsin"
-          >
-            @aidthompsin
-          </a>
-          GENERATIONAL EQUITY THEFT
-          <a
-            title="ukpol"
-            target="_blank"
-            href="https://www.tiktok.com/tag/ukpol"
-          >
-            #ukpol
-          </a>
-          <a
-            title="ukpolitics"
-            target="_blank"
-            href="https://www.tiktok.com/tag/ukpolitics"
-          >
-            #ukpolitics
-          </a>
-          <a
-            title="brexit"
-            target="_blank"
-            href="https://www.tiktok.com/tag/brexit"
-          >
-            #brexit
-          </a>
-          <a
-            title="housingcrisis"
-            target="_blank"
-            href="https://www.tiktok.com/tag/housingcrisis"
-          >
-            #housingcrisis
-          </a>
-          <a
-            title="boris"
-            target="_blank"
-            href="https://www.tiktok.com/tag/boris"
-          >
-            #boris
-          </a>
-          <a
-            title="toriesout"
-            target="_blank"
-            href="https://www.tiktok.com/tag/toriesout"
-          >
-            #toriesout
-          </a>
-          <a
-            title="ukhousingmarket"
-            target="_blank"
-            href="https://www.tiktok.com/tag/ukhousingmarket"
-          >
-            #ukhousingmarket
-          </a>
-          <a
-            title="boomer"
-            target="_blank"
-            href="https://www.tiktok.com/tag/boomer"
-          >
-            #boomer
-          </a>
-          <a
-            title="uknews"
-            target="_blank"
-            href="https://www.tiktok.com/tag/uknews"
-          >
-            #uknews
-          </a>
-          <a
-            title="britishpolitics"
-            target="_blank"
-            href="https://www.tiktok.com/tag/britishpolitics"
-          >
-            #britishpolitics
-          </a>
-          <a
-            title="homeowner"
-            target="_blank"
-            href="https://www.tiktok.com/tag/homeowner"
-          >
-            #homeowner
-          </a>
-          <a
-            target="_blank"
-            title="♬ original sound - aidThompsin"
-            href="https://www.tiktok.com/music/original-sound-6953526968524589830"
-          >
-            ♬ original sound - aidThompsin
-          </a>
-        </section>
-      </blockquote>
-      <blockquote
-        className="tiktok-embed"
-        cite="https://www.tiktok.com/@aidthompsin/video/6945013035299867909"
-        data-video-id="6945013035299867909"
-        style={{ maxWidth: 605, minWidth: 325 }}
-      >
-        <section>
-          <a
-            target="_blank"
-            title="@aidthompsin"
-            href="https://www.tiktok.com/@aidthompsin"
-          >
-            @aidthompsin
-          </a>
-          Tories on Tiktok make me 😂😂😂
-          <a
-            title="toriesout"
-            target="_blank"
-            href="https://www.tiktok.com/tag/toriesout"
-          >
-            #toriesout
-          </a>
-          <a
-            title="ukpolitics"
-            target="_blank"
-            href="https://www.tiktok.com/tag/ukpolitics"
-          >
-            #ukpolitics
-          </a>
-          <a
-            title="borisjohnson"
-            target="_blank"
-            href="https://www.tiktok.com/tag/borisjohnson"
-          >
-            #borisjohnson
-          </a>
-          <a
-            title="brexit"
-            target="_blank"
-            href="https://www.tiktok.com/tag/brexit"
-          >
-            #brexit
-          </a>
-          <a
-            title="boris"
-            target="_blank"
-            href="https://www.tiktok.com/tag/boris"
-          >
-            #boris
-          </a>
-          <a
-            title="labourparty"
-            target="_blank"
-            href="https://www.tiktok.com/tag/labourparty"
-          >
-            #labourparty
-          </a>
-          <a
-            title="politics"
-            target="_blank"
-            href="https://www.tiktok.com/tag/politics"
-          >
-            #politics
-          </a>
-          <a
-            title="british"
-            target="_blank"
-            href="https://www.tiktok.com/tag/british"
-          >
-            #british
-          </a>
-          <a
-            title="tories"
-            target="_blank"
-            href="https://www.tiktok.com/tag/tories"
-          >
-            #tories
-          </a>
-          <a
-            target="_blank"
-            title="♬ original sound - aidThompsin"
-            href="https://www.tiktok.com/music/original-sound-6945012743820856069"
-          >
-            ♬ original sound - aidThompsin
-          </a>
-        </section>
-      </blockquote>
+      <Divider sx={{ mt: 2, mb: 2 }} />
+
+      <EachTiktok
+        caption="The Housing Crisis"
+        views="607,701"
+        likes="65,900"
+        videoSrc="/housingCrisis.mp4"
+      />
+      <EachTiktok
+        caption="Tories On Tiktok"
+        views="52,000"
+        likes="7,473"
+        videoSrc="/toriesOnTiktok.mp4"
+      />
       <Button
         onClick={() => window.open("https://tiktok.com/@aidthompsin")}
         variant="contained"

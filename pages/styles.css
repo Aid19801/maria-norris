@@ -124,3 +124,12 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.Tiktok__wrapper div {
+  width: inherit !important;
+  height: inherit !important;
+}
+
+.Tiktok__wrapper div video {
+  border-radius: 25px;
+}

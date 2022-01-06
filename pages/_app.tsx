@@ -10,8 +10,6 @@ export default function Application({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <Head>
           <link rel="icon" href="/favicon.svg" />
-          <script async src="https://platform.twitter.com/widgets.js" />
-          <script async src="https://www.tiktok.com/embed.js" />
         </Head>
         <Component {...pageProps} />
       </ThemeProvider>

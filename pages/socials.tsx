@@ -249,10 +249,10 @@ export const PageSocials: React.FC = () => {
             </Box>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        {/* <Grid item xs={12} md={4}>
           <TweetWall />
-        </Grid>
-        <Grid item xs={12} md={4}>
+        </Grid> */}
+        <Grid item xs={12} md={4} lg={3}>
           <TiktokWall />
         </Grid>
       </Grid>

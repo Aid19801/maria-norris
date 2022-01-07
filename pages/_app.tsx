@@ -24,6 +24,7 @@ export default function Application({ Component, pageProps }) {
         <AnalyticsProvider instance={analytics}>
           <Head>
             <link rel="icon" href="/favicon.svg" />
+            <script src="https://www.googleoptimize.com/optimize.js?id=OPT-KQZVC96" />
           </Head>
           <Component {...pageProps} />
         </AnalyticsProvider>

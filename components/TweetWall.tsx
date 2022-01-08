@@ -179,7 +179,13 @@ export const TweetWall: React.FC = () => {
         </a>
       </Box>
       <Divider sx={{ mt: 2, mb: 2 }} />
-
+      <EachTweet
+        text="They care more about statues in a dock than dead children in the Channel.
+        And we're supposed to try to 'understand' these people."
+        retweets="75"
+        likes="521"
+        urlToTweet="https://twitter.com/aidThompsin/status/1479723049259876355"
+      />
       <EachTweet
         text="*Boris Johnson crashes 18-wheeler of toxic chemicals into a childrens ward* - DAN HODGES: Another Perfect & Churchillian Performance From Boris Johnson."
         retweets="16"

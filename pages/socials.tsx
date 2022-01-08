@@ -8,6 +8,7 @@ import { useAnalytics } from "use-analytics";
 import { useMainContext } from "../context/main";
 import TweetWall from "../components/TweetWall";
 import TiktokWall from "../components/TiktokWall";
+import InstagramWall from "../components/InstagramWall";
 
 export const PageSocials: React.FC = () => {
   const theme = useTheme();
@@ -260,6 +261,9 @@ export const PageSocials: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={4} lg={3}>
           <TweetWall />
+        </Grid>
+        <Grid item xs={12} md={4} lg={3}>
+          <InstagramWall />
         </Grid>
       </Grid>
     </Layout>

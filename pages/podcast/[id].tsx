@@ -2,6 +2,7 @@ import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
 import { useAnalytics } from "use-analytics";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";

@@ -20,7 +20,7 @@ const Layout = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { isLoading } = useMainContext();
   return (
-    <div className="layout__container">
+    <div className="layout__container" style={{ marginLeft: 20 }}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />

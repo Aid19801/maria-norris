@@ -27,11 +27,11 @@ export const MainContextProvider: React.FC = ({ children }) => {
   // const router = useRouter();
   const fetchAllPages = async () => {
     // @ts-ignore
-    const endpoint: any = getEndpoint("funk27");
-    // @ts-ignore
-    const client: any = createClient(endpoint, { fetch });
-    const { results } = await client.getByType("page");
-    setPages(results);
+    // const endpoint: any = getEndpoint("funk27");
+    // // @ts-ignore
+    // const client: any = createClient(endpoint, { fetch });
+    // const { results } = await client.getByType("page");
+    // setPages(results);
   };
 
   const toggleLoading = (bool) => {

@@ -108,9 +108,11 @@ const PagePodcast = ({ data }: Props) => {
           <Card sx={{ display: "flex", flexDirection: "column", padding: 4 }}>
             <Typography
               variant="body2"
+              fontFamily="Lora"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
                 fontWeight: isDesktop ? 300 : 400,
+                fontFamily: "Arial",
               }}
             >
               {data && data.description[0].text}
@@ -160,8 +162,83 @@ const PagePodcast = ({ data }: Props) => {
               />
             </Box>
           </Card>
-
           <Divider sx={{ mb: 4, width: "90%" }} />
+          <Card sx={{ display: "flex", flexDirection: "column", padding: 4 }}>
+            <Typography
+              variant="body2"
+              fontFamily="Lora"
+              sx={{
+                fontSize: isDesktop ? "inherit" : "30px",
+                fontWeight: isDesktop ? 300 : 400,
+                color: "darkgrey",
+                fontFamily: "Arial",
+              }}
+            >
+              "Aid Thompsin & Other Disappointments" is a podcast where i get to
+              interview and probe some interesting people. The topics range from
+              Politics to Tech to me just talking shit with people over a beer.
+            </Typography>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                width: "100%",
+                justifyContent: "space-around",
+                mt: 2,
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: 40,
+                }}
+              >
+                <Image
+                  className="podcast__socials"
+                  onClick={() => window.open("https://patreon.com/aidthompsin")}
+                  src="/patreonLogo.png"
+                  height={40}
+                  width={40}
+                  alt="patreon"
+                />
+                <Typography
+                  variant="body1"
+                  textAlign="center"
+                  sx={{ fontSize: 9, color: "darkgrey" }}
+                >
+                  Support on Patreon
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: 40,
+                }}
+              >
+                <Image
+                  className="podcast__socials"
+                  onClick={() =>
+                    window.open("https://www.buymeacoffee.com/aidthompsin")
+                  }
+                  src="/buymeacoffee.png"
+                  height={40}
+                  width={40}
+                  alt="buymeacoffee logo"
+                />
+                <Typography
+                  variant="body1"
+                  textAlign="center"
+                  sx={{ fontSize: 9, color: "darkgrey" }}
+                >
+                  Buy Me A Coffee
+                </Typography>
+              </Box>
+            </Box>
+          </Card>
         </Grid>
       </Grid>
     </Layout>
@@ -177,7 +254,8 @@ export async function getServerSideProps(context: any) {
 
   const firstSeason = allPodcastData.data.body[0].items;
   const secondSeason = allPodcastData.data.body[1].items;
-  const all = [...firstSeason, ...secondSeason];
+  const thirdSeason = allPodcastData.data.body[2].items;
+  const all = [...firstSeason, ...secondSeason, ...thirdSeason];
 
   const data = all.filter(
     (each) => each.episode_slug[0].text === context.params.id

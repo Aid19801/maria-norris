@@ -74,7 +74,7 @@ export default function Nav() {
         sx={{
           mt: 5,
           transition: "0.2s ease",
-          ml: "-13px",
+          ml: "-28px",
           py: 3,
           px: isOpen ? 1 : 0,
           position: "fixed",
@@ -110,7 +110,10 @@ export default function Nav() {
         <List
           component="nav"
           aria-label="mailbox folders"
-          sx={{ visibility: isOpen ? "visible" : "hidden" }}
+          sx={{
+            visibility: isOpen ? "visible" : "hidden",
+            ml: isMobile ? "-30px" : "-6px",
+          }}
         >
           {navOptions.map((eachOption, i) => {
             return (
@@ -119,7 +122,7 @@ export default function Nav() {
                   component="button"
                   onClick={() => handleRouteChange(eachOption)}
                   sx={{
-                    color: isMobile ? "white" : "primary.light",
+                    color: isMobile ? "white" : "white",
                     background: "none",
                     border: "none",
                   }}

@@ -11,9 +11,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { BadgeAvatar } from "./Badge";
 import { useMainContext } from "../context/main";
-interface PodcastCardType {
-  episodeArtworkSrc: string;
-  guestImgSrc: string;
+
+interface ContentCardType {
+  backgroundArtworkSrc: string;
+  profileImgSrc: string;
   title: string;
   description: string;
   artworkAlt: string;
@@ -22,10 +23,10 @@ interface PodcastCardType {
   slug?: string;
 }
 
-export const PodcastCard: React.FC<PodcastCardType> = ({
-  episodeArtworkSrc,
+export const ContentCard: React.FC<ContentCardType> = ({
+  backgroundArtworkSrc,
   artworkAlt,
-  guestImgSrc,
+  profileImgSrc,
   title,
   description,
   descriptionLength = 400,
@@ -33,6 +34,7 @@ export const PodcastCard: React.FC<PodcastCardType> = ({
   slug = "",
 }) => {
   const { toggleLoading } = useMainContext();
+
   return (
     <Card sx={{ minHeight: 300 }}>
       <div onClick={() => toggleLoading(true)}>
@@ -42,7 +44,7 @@ export const PodcastCard: React.FC<PodcastCardType> = ({
               component="img"
               alt={artworkAlt}
               height="140"
-              image={episodeArtworkSrc || "/poddy.png"}
+              image={backgroundArtworkSrc || "/poddy.png"}
               sx={{ filter: "grayscale(100%)", opacity: 0.4 }}
             />
             <CardContent sx={{ pb: 0 }}>
@@ -55,7 +57,7 @@ export const PodcastCard: React.FC<PodcastCardType> = ({
               >
                 {title.toLocaleLowerCase()}
                 <Box sx={{ position: "absolute", bottom: "100%" }}>
-                  <BadgeAvatar src={guestImgSrc} height={100} width={100} />
+                  <BadgeAvatar src={profileImgSrc} height={100} width={100} />
                 </Box>
               </Typography>
               <Typography

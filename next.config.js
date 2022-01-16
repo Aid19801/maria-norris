@@ -14,6 +14,7 @@ module.exports = {
       "www.pngitem.com",
       "cdn4.iconfinder.com",
       "p.kindpng.com",
+      "i.dlpng.com",
     ],
     // formats: ["image/avif", "image/webp", "image/jpg", "image/jpeg"],
   },

@@ -4,8 +4,12 @@
 
 * {
   /* border: 1px solid lightgrey; */
+  cursor: default;
 }
 
+a {
+  text-decoration: none !important;
+}
 .blog__container p {
   font-family: Lora;
   line-height: 1.7;

@@ -102,7 +102,7 @@ export const PageSocials: React.FC = () => {
                 externalLink="https://www.patreon.com/aidThompsin"
                 height={isDesktop ? 90 : 140}
                 width={isDesktop ? 90 : 140}
-                src="https://p.kindpng.com/picc/s/122-1225463_patreon-new-patreon-logo-transparent-hd-png-download.png"
+                src="/socials_patreonLogo.jpeg"
               />
               <Typography
                 variant="body1"
@@ -129,7 +129,7 @@ export const PageSocials: React.FC = () => {
                 externalLink="https://twitter.com/aidthompsin"
                 height={isDesktop ? 90 : 140}
                 width={isDesktop ? 90 : 140}
-                src="https://www.freeiconspng.com/uploads/logo-twitter-circle-png-transparent-image-1.png"
+                src="/socials_twitterLogo.png"
               />
               <Typography
                 variant="body1"
@@ -156,7 +156,7 @@ export const PageSocials: React.FC = () => {
                 externalLink="https://facebook.com/aidthompsin"
                 height={isDesktop ? 90 : 140}
                 width={isDesktop ? 90 : 140}
-                src="https://seeklogo.com/images/F/facebook-icon-circle-logo-09F32F61FF-seeklogo.com.png"
+                src="/socials_facebookLogo.png"
               />
               <Typography
                 variant="body1"
@@ -184,7 +184,7 @@ export const PageSocials: React.FC = () => {
                 externalLink="https://www.tiktok.com/@aidthompsin"
                 height={isDesktop ? 90 : 140}
                 width={isDesktop ? 90 : 140}
-                src="http://assets.stickpng.com/images/5cb78671a7c7755bf004c14b.png"
+                src="/socials_tiktokLogo.png"
               />
               <Typography
                 variant="body1"
@@ -211,7 +211,7 @@ export const PageSocials: React.FC = () => {
                 externalLink="https://www.youtube.com/adrianthompsonComedy"
                 height={isDesktop ? 90 : 140}
                 width={isDesktop ? 90 : 140}
-                src="https://www.pngitem.com/pimgs/m/11-114700_youtube-red-circle-youtube-circle-icon-png-transparent.png"
+                src="/socials_youtubeLogo.png"
               />
               <Typography
                 variant="body1"
@@ -239,7 +239,7 @@ export const PageSocials: React.FC = () => {
                 externalLink="https://www.linkedin.com/company/funk-27"
                 height={isDesktop ? 90 : 140}
                 width={isDesktop ? 90 : 140}
-                src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png"
+                src="/socials_linkedinLogo.png"
               />
               <Typography
                 variant="body1"

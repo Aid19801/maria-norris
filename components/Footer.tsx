@@ -145,9 +145,11 @@ export function Footer(): ReactElement {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {footerLinksLeft.map((each) => (
               <Link key={each.link} href={each.link}>
-                <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
-                  {each.text}
-                </Typography>
+                <a target="_blank">
+                  <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
+                    {each.text}
+                  </Typography>
+                </a>
               </Link>
             ))}
           </Box>
@@ -156,9 +158,11 @@ export function Footer(): ReactElement {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {footerLinksCenter.map((each) => (
               <Link key={each.link} href={each.link}>
-                <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
-                  {each.text}
-                </Typography>
+                <a target="_blank">
+                  <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
+                    {each.text}
+                  </Typography>
+                </a>
               </Link>
             ))}
           </Box>
@@ -167,9 +171,11 @@ export function Footer(): ReactElement {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {footerLinksRight.map((each) => (
               <Link key={each.link} href={each.link}>
-                <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
-                  {each.text}
-                </Typography>
+                <a target="_blank">
+                  <Typography sx={{ color: "darkgrey", fontWeight: 300 }}>
+                    {each.text}
+                  </Typography>
+                </a>
               </Link>
             ))}
           </Box>
@@ -183,10 +189,7 @@ export function Footer(): ReactElement {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                // visibility: isDesktop ? "inherit" : "hidden",
                 px: 2,
-                // width: isDesktop ? "50%" : "0%",
-                // border: "1px solid red",
               }}
             >
               <Typography variant="h3" sx={{ color: "rgb(219 214 214)" }}>

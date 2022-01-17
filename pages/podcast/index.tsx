@@ -142,7 +142,6 @@ const PagePodcastIndex = ({ data }: Props) => {
             />
           </Grid>
         ))}
-        1111
         <Grid item xs={12} md={6}>
           <ContentCard
             title={data?.body[1].items[10].title1[0].text}

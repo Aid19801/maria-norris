@@ -1,10 +1,14 @@
-import { Grid, Grow } from "@mui/material";
+import { Button, Grid, Grow } from "@mui/material";
 import Head from "next/head";
 import * as React from "react";
 import Layout from "../components/Layout";
 import { ContentCard } from "../components/ContentCard";
 
 export const PageAffiliates = () => {
+  const handleClick = () => {
+    window.open("TradeNation://tradenation.com");
+  };
+
   return (
     <Layout>
       <Head>
@@ -34,6 +38,7 @@ export const PageAffiliates = () => {
         />
       </Head>
       <Grid container spacing={2} className="blog__container">
+        <Button onClick={handleClick}>Click Me</Button>
         <Grow in={true}>
           <Grid item xs={12} md={6}>
             <ContentCard

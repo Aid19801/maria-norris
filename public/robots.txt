@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://funk-27.co.uk
+
+# Sitemaps
+Sitemap: https://funk-27.co.uk/sitemap.xml

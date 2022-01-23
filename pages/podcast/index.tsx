@@ -28,7 +28,7 @@ const PagePodcastIndex = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const mostRecentEpisode = data?.body[0].items[0];
-  const secondMostRecentEpisode = data?.body[1].items[0];
+  const secondMostRecentEpisode = data?.body[0].items[1];
   const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
 
@@ -79,7 +79,6 @@ const PagePodcastIndex = ({ data }: Props) => {
         sx={{
           mb: 5,
           lineHeight: 1,
-          // fontFamily: "monospace",
           color: (theme) => theme.palette.secondary.light,
           fontSize: isDesktop ? 200 : 110,
         }}
@@ -123,6 +122,25 @@ const PagePodcastIndex = ({ data }: Props) => {
             />
           </Grid>
         </Grow>
+
+        {data?.body[0].items
+          .slice(2, data?.body[0].items.length)
+          .map((each, i) => {
+            return (
+              <Grow in={true} key={i}>
+                <Grid item xs={12} md={4}>
+                  <ContentCard
+                    title={each.title1[0].text}
+                    description={each.description[0].text}
+                    backgroundArtworkSrc={each.podc_ep_twitter_img.url}
+                    artworkAlt={each.podc_ep_twitter_img.alt}
+                    profileImgSrc={each.guest_photo.url}
+                    slug={each.episode_slug[0].text}
+                  />
+                </Grid>
+              </Grow>
+            );
+          })}
       </Grid>
 
       <MuiDivider prim />

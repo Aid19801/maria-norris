@@ -77,7 +77,9 @@ export default function Nav() {
           ml: "-28px",
           py: 3,
           px: isOpen ? 1 : 0,
-          position: "fixed",
+          position: isMobile ? "absolute" : "fixed",
+          top: isMobile ? "15px" : null,
+          left: isMobile ? "4px" : null,
           width: isOpen ? navWidth : 0,
           contain: "content",
           height: "100vh",
@@ -93,6 +95,7 @@ export default function Nav() {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                ml: isMobile ? 2 : 0,
               }}
             >
               <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
@@ -112,7 +115,7 @@ export default function Nav() {
           aria-label="mailbox folders"
           sx={{
             visibility: isOpen ? "visible" : "hidden",
-            ml: isMobile ? "-30px" : "-6px",
+            ml: isMobile ? "15px" : "-6px",
           }}
         >
           {navOptions.map((eachOption, i) => {

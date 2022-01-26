@@ -77,15 +77,16 @@ export default function Nav() {
           ml: "-28px",
           py: 3,
           px: isOpen ? 1 : 0,
-          position: isMobile ? "absolute" : "fixed",
+          position: "absolute",
           top: isMobile ? "15px" : null,
           left: isMobile ? "4px" : null,
           width: isOpen ? navWidth : 0,
           contain: "content",
-          height: "100vh",
+          height: "auto",
           zIndex: 2,
           border: isOpen ? "4px solid grey" : null,
           background: (theme) => theme.palette.secondary.light,
+          boxShadow: "1px 20px 26px 5px rgba(0,0,0,0.67)",
         }}
       >
         {isOpen && (

@@ -2,9 +2,8 @@ import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-import { useAnalytics } from "use-analytics";
-import Layout from "../../components/Layout";
-import { useMainContext } from "../../context/main";
+import Layout from "../components/Layout";
+import { useMainContext } from "../context/main";
 import {
   Box,
   Card,
@@ -15,10 +14,11 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { ContentCard } from "../../components/ContentCard";
-import { MuiDivider } from "../../components/MuiDivider";
+import { ContentCard } from "../components/ContentCard";
+import { MuiDivider } from "../components/MuiDivider";
 import Link from "next/link";
 import Head from "next/head";
+import { content } from "../utils/strings";
 
 type Props = {
   data: any;
@@ -29,12 +29,8 @@ const PagePodcastIndex = ({ data }: Props) => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const mostRecentEpisode = data?.body[0].items[0];
   const secondMostRecentEpisode = data?.body[0].items[1];
-  const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
 
-  React.useEffect(() => {
-    page();
-  }, []);
   React.useEffect(() => {
     if (data) {
       toggleLoading(false);
@@ -43,8 +39,8 @@ const PagePodcastIndex = ({ data }: Props) => {
   return (
     <Layout title="Funk-27 | Podcasts">
       <Head>
-        <title>F27 | Aid Thompsin & Other Disappointments</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{content.title} - Podcast</title>
+        <link rel="icon" href="/m.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={data.twitter_image.url} />
@@ -54,14 +50,14 @@ const PagePodcastIndex = ({ data }: Props) => {
         <meta
           property="og:title"
           //@ts-ignore
-          content={`F27 | Aid Thompsin & Other Disappointments`}
+          content={content.podcast_title}
           key="title"
         />
 
         <meta
           property="og:description"
           //@ts-ignore
-          content="A lonely Father-of-two is marooned from his friends and family and has to resort to booking a conversation in with someone every Friday night or he'll lose his fucking mind. Join comedian, Aid Thompsin, and high-profile guests as they try to make sense of the senseless. #Tech #Politics #Dystopia."
+          content={content.podcast_para_1}
           key="description"
         />
 
@@ -93,7 +89,7 @@ const PagePodcastIndex = ({ data }: Props) => {
           mb: 5,
         }}
       >
-        Aid Thompsin & Other Disappointments
+        {content.podcast_title}
       </Typography>
       <Grid container spacing={2} sx={{ mb: 2 }}>
         <Grow in={true}>

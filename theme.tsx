@@ -3,14 +3,14 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#ed6c02", // orange
+      main: "#3D1255", // purple
     },
     secondary: {
-      main: "#696969", // grey
+      main: "#9775AA", // light/violet
     },
   },
   typography: {
-    fontFamily: "Oswald",
+    fontFamily: "Bebas Neue",
   },
   spacing: 8,
   components: {

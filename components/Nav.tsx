@@ -13,15 +13,9 @@ import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMainContext } from "../context/main";
 import Link from "next/link";
+import { content } from "../utils/strings";
 
-const navOptions = [
-  "podcast",
-  "blog",
-  "contact",
-  "about",
-  "socials",
-  "trollboard",
-];
+const navOptions = ["home", "about", "contact", "podcast", "academia"];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -34,10 +28,13 @@ export default function Nav() {
 
   const { toggleLoading } = useMainContext();
 
-  const handleRouteChange = (loc) => {
+  const handleRouteChange = (loc: string) => {
     toggleLoading(true);
     setIsOpen(false);
-    router.push("/" + loc);
+    if (loc === "home") {
+      return router.push("/");
+    }
+    return router.push("/" + loc);
   };
 
   React.useEffect(() => {
@@ -66,7 +63,7 @@ export default function Nav() {
           <MenuIcon />
         </Badge>
         <Link href="/">
-          <Typography variant="body1">Funk-27</Typography>
+          <Typography variant="body1">{content.title}</Typography>
         </Link>
       </MuiAppBar>
       <Box
@@ -84,7 +81,7 @@ export default function Nav() {
           contain: "content",
           height: "auto",
           zIndex: 2,
-          border: isOpen ? "4px solid grey" : null,
+          border: isOpen ? "4px solid white" : null,
           background: (theme) => theme.palette.secondary.light,
           boxShadow: "1px 20px 26px 5px rgba(0,0,0,0.67)",
         }}
@@ -100,10 +97,13 @@ export default function Nav() {
               }}
             >
               <Typography sx={{ ml: 1, mb: 2, color: "white" }} variant="h4">
-                Funk-
+                Maria&nbsp;
               </Typography>
-              <Typography sx={{ mb: 2, color: "orange" }} variant="h4">
-                27
+              <Typography
+                sx={{ mb: 2, color: (theme) => theme.palette.primary.main }}
+                variant="h4"
+              >
+                Norris
               </Typography>
             </Box>
           </Link>

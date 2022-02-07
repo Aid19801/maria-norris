@@ -5,8 +5,8 @@ import { useMainContext } from "../context/main";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
-import { useAnalytics } from "use-analytics";
 import Head from "next/head";
+import { content } from "../utils/strings";
 
 const asSeenOnImgs = [
   "https://cdn-radiotime-logos.tunein.com/s17569g.png",
@@ -16,19 +16,16 @@ const asSeenOnImgs = [
   "https://www.chortle.co.uk/images/photos/small/leicester-square-theatre.jpg",
   "https://www.logo-designer.co/wp-content/uploads/2017/04/2017-huffpost-new-logo-design-2.png",
 ];
+
 export const AboutPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const { page } = useAnalytics();
-  React.useEffect(() => {
-    page();
-  }, []);
   toggleLoading(false);
   return (
-    <Layout title="Funk-27 | About">
+    <Layout title={`${content.title} - About`}>
       <Head>
-        <title>F27 | About</title>
+        <title>{`${content.title} - About`}</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -39,14 +36,14 @@ export const AboutPage = () => {
         <meta
           property="og:title"
           //@ts-ignore
-          content={`Funk-27 | About`}
+          content={`${content.title} - About`}
           key="title"
         />
 
         <meta
           property="og:description"
           //@ts-ignore
-          content="Discontent Providers of podcasts, blogs and all things contenty. Check out the weekly humorous blogs about Politics and Dystopia"
+          content={`${content.title} | About | ${content.description}`}
           key="description"
         />
 
@@ -76,18 +73,21 @@ export const AboutPage = () => {
             variant="body1"
             sx={{ fontSize: isMobile ? 30 : 40, color: "darkgrey" }}
           >
-            Funk-27 was the brainchild of London-based Software Engineer, Adrian
-            Thompson. In fact, that's me. I don't know why I'm talking about
-            myself in the third person.
+            {content.about_para_1}
           </Typography>
           <Divider sx={{ my: 2 }} />
           <Typography
             variant="body1"
             sx={{ fontSize: isMobile ? 15 : 20, color: "orange", mb: 2 }}
           >
-            Dreamed up after five beers, the platform seeks to become a conduit
-            for those looking to gobblie up intelligent and/or funny Podcasts
-            and engaging & humorous Blogs.
+            {content.about_para_2}
+          </Typography>
+          <Divider sx={{ my: 2 }} />
+          <Typography
+            variant="body1"
+            sx={{ fontSize: isMobile ? 15 : 20, color: "orange", mb: 2 }}
+          >
+            {content.about_para_3}
           </Typography>
 
           <MuiDivider left />
@@ -133,10 +133,15 @@ export const AboutPage = () => {
               bgcolor: "darkgrey",
             }}
           >
-            If you <i>really</i> want to get a feel what the content is like,
-            it's influenced by the comedic stylings of Marina Hyde and Tim
-            Dillon - after an assault by, I dunno, Christ, maybe... campaigning
-            journalists like Raphael Behr and Ian Dunt.
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
           </Typography>
           <Typography
             variant="body1"
@@ -148,20 +153,11 @@ export const AboutPage = () => {
               mt: 2,
             }}
           >
-            The first launch by <i>Funk-27</i> was the explosive "Aid Thompsin &
-            Other Disappointments" podcast. The show began in December 2020 with
-            its first guest, Emmett Short, and took the form of a weekly Tech,
-            Comedy & Dystopia conversation. "What will Crypto do to the Finance
-            industry?" feat Tom Pontin, or "What does the future of UX [user
-            experience] look like?", and so on. <br />
-            <br />
-            But as the Pandemic took hold and reality began to resemble the
-            dystopias we'd read about in Science Fiction novels, the worlds of
-            Science, Politics and Tech began to align. And so the show has
-            broadened out to find-the-funny in (or merely examine) areas like
-            Brexit, Tory Government, the Trumpification of the Republican Party
-            and/or the changing shape and influence of Media in the 21st
-            Century.
+            But also the leap into electronic typesetting, remaining essentially
+            unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently
+            with desktop publishing software like Aldus PageMaker including
+            versions of Lorem Ipsum.
           </Typography>
         </Grid>
         <Grid item xs={12} md={6} alignItems="center">
@@ -177,9 +173,9 @@ export const AboutPage = () => {
             <Image
               className="rounded-corners"
               alt="aid thompsin profile picture"
-              height={640}
-              width={386}
-              src="/me_mob.png"
+              height={400}
+              width={400}
+              src="/me_med.jpeg"
             />
             <Typography
               variant="body1"
@@ -190,8 +186,7 @@ export const AboutPage = () => {
               mt={2}
               textAlign={isMobile ? "center" : "left"}
             >
-              Aid Thompsin (me), attempting to look half-serious but coming off
-              as self-satisfied.
+              {content.title}
             </Typography>
             <Box
               sx={{
@@ -202,15 +197,15 @@ export const AboutPage = () => {
                 justifyContent: "space-around",
               }}
             >
-              {asSeenOnImgs.map((each) => {
+              {content.as_seen_on.map((each) => {
                 return (
-                  <div className="hover-line" key={each}>
+                  <div className="hover-line" key={each.name}>
                     <Image
                       className="rounded grey-border hover-fade"
-                      alt="as seen on images logos"
+                      alt={each.name}
                       height={50}
                       width={50}
-                      src={each}
+                      src={each.logo}
                     />
                   </div>
                 );

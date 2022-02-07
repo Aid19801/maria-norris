@@ -1,39 +1,34 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
-import { useAnalytics } from "use-analytics";
 import { getEndpoint, createClient } from "@prismicio/client";
 import { useTheme } from "@mui/material/styles";
-import Layout from "../../components/Layout";
-import { useMainContext } from "../../context/main";
+import Layout from "../components/Layout";
+import { useMainContext } from "../context/main";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
-import { BlogCard } from "../../components/BlogCard";
+import { BlogCard } from "../components/BlogCard";
 import Head from "next/head";
+import { content } from "../utils/strings";
 
 type Props = {
   data: any;
 };
 
-const PageBlogIndex = ({ data }: Props) => {
+const PageBlog = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
   React.useEffect(() => {
-    // console.log("PAGE BLOG INDEX CHANGED [data]");
     if (data) {
       toggleLoading(false);
     }
   }, [data]);
 
-  React.useEffect(() => {
-    page();
-  }, []);
   return (
     <Layout title="Blog Index Page">
       <Head>
-        <title>Funk-27 | Blog</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{content.title} - Blog</title>
+        <link rel="icon" href="/m.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={data.twitter_image.url} />
@@ -43,14 +38,14 @@ const PageBlogIndex = ({ data }: Props) => {
         <meta
           property="og:title"
           //@ts-ignore
-          content={`Funk-27 | Blog`}
+          content={`${content.title} - Blog`}
           key="title"
         />
 
         <meta
           property="og:description"
           //@ts-ignore
-          content="Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from."
+          content={`${content.title} | Blog | ${content.description}`}
           key="description"
         />
 
@@ -118,4 +113,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { data } };
 };
 
-export default PageBlogIndex;
+export default PageBlog;

@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import { MuiDivider } from "./MuiDivider";
-
+import { content } from "../utils/strings";
 // CONTENT
 const footerLinksRight = [
   {
@@ -121,7 +121,7 @@ export function Footer(): ReactElement {
                     fontWeight: 400,
                   }}
                 >
-                  F
+                  Dr&nbsp;
                 </Typography>
                 <Typography
                   variant="body1"
@@ -129,11 +129,11 @@ export function Footer(): ReactElement {
                     fontSize: "5vh",
                     marginTop: 0,
                     marginBottom: 0,
-                    color: "orange",
+                    color: (theme) => theme.palette.secondary.main,
                     fontWeight: 400,
                   }}
                 >
-                  27
+                  Maria Norris
                 </Typography>
               </Box>
             </Link>
@@ -193,7 +193,7 @@ export function Footer(): ReactElement {
               }}
             >
               <Typography variant="h3" sx={{ color: "rgb(219 214 214)" }}>
-                Discontent Providers
+                {content.description}
               </Typography>
             </Box>
           </Grid>

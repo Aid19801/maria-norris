@@ -4,28 +4,23 @@ import Head from "next/head";
 import { useTheme } from "@mui/material/styles";
 import { BadgeAvatar } from "../components/Badge";
 import Layout from "../components/Layout";
-import { useAnalytics } from "use-analytics";
 import { useMainContext } from "../context/main";
 import TweetWall from "../components/TweetWall";
 import TiktokWall from "../components/TiktokWall";
 import InstagramWall from "../components/InstagramWall";
+import { content } from "../utils/strings";
 
 export const PageSocials: React.FC = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
 
   toggleLoading(false);
 
-  React.useEffect(() => {
-    page();
-  }, []);
-
   return (
     <Layout title="F27 | Socials">
       <Head>
-        <title>F27 | Get @ Me</title>
+        <title>{content.title} - Socials</title>
 
         <meta name="twitter:card" content="summary_large_image" />
 
@@ -39,14 +34,14 @@ export const PageSocials: React.FC = () => {
         <meta
           property="og:title"
           //@ts-ignore
-          content={`Funk-27 | Discontent Providers`}
+          content={`${content.title} - Socials`}
           key="title"
         />
 
         <meta
           property="og:description"
           //@ts-ignore
-          content="Get in touch or follow us on other platforms to get full exposure to upcoming Podcasts, chat Politics, or muse over the future of Media and Tech. Or the weather. The weather is fine, also."
+          content={`${content.title} | Socials | ${content.description}`}
           key="description"
         />
 

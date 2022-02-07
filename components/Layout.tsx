@@ -30,7 +30,7 @@ const Layout = ({
       <Box
         className="box-yo-1"
         sx={{
-          background: "#f1a66d",
+          background: (theme) => theme.palette.primary.dark,
           clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
           position: "fixed",
           opacity: 0.1,
@@ -44,7 +44,7 @@ const Layout = ({
       <Box
         className="box-yo-2"
         sx={{
-          background: "#f1a66d",
+          background: (theme) => theme.palette.primary.light,
           clipPath: "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
           position: "fixed",
           opacity: 0.1,
@@ -60,7 +60,7 @@ const Layout = ({
       <Box
         className="box-yo-3"
         sx={{
-          background: "#f1a66d",
+          background: (theme) => theme.palette.secondary.dark,
           clipPath: "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
           position: "fixed",
           opacity: 0.1,

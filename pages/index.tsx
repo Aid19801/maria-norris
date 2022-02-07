@@ -1,45 +1,35 @@
 import * as React from "react";
-import Link from "next/link";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Typography } from "@mui/material";
-import { useAnalytics } from "use-analytics";
 import Head from "next/head";
+import { content } from "../utils/strings";
 
 const IndexPage = () => {
   const { toggleLoading } = useMainContext();
   const [showBrand, setShowBrand] = React.useState<boolean>(false);
-  const { track, page, identify } = useAnalytics();
   toggleLoading(false);
 
   React.useEffect(() => {
-    // setShowBrand(true);
-    console.log("loaded fired");
     setTimeout(() => {
-      console.log("showing brand now");
       setShowBrand(true);
     }, 1000);
-    page();
   }, []);
   return (
-    <Layout title="Funk-27 | Discontent Providers">
+    <Layout title={content.title}>
       <Head>
-        <title>F27 | Discontent Providers</title>
+        <title>{content.title}</title>
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/shedShot.png" />
         <meta name="twitter:creator" content="@aidThompsin" />
         <meta name="twitter:site" content="@aidThompsin" />
 
-        <meta
-          property="og:title"
-          content={`Funk-27 | Discontent Providers`}
-          key="title"
-        />
+        <meta property="og:title" content={content.title} key="title" />
 
         <meta
           property="og:description"
-          content="Discontent Providers | new media platform (or web-app) serving up Podcasts and Blogs that attempt to make sense of the senseless. In a delightfully c*nty way."
+          content={`${content.title} | Home | ${content.description}`}
           key="description"
         />
 
@@ -69,18 +59,18 @@ const IndexPage = () => {
               opacity: showBrand ? 1 : 0,
             }}
           >
-            Funk-
+            Dr&nbsp;
           </Typography>
           <Typography
             variant="h1"
             sx={{
-              color: "orange",
+              color: (theme) => theme.palette.secondary.light,
               fontWeight: "bold",
               transition: "600ms",
               opacity: showBrand ? 1 : 0,
             }}
           >
-            27
+            Maria Norris
           </Typography>
         </Box>
         <Typography
@@ -91,7 +81,7 @@ const IndexPage = () => {
             opacity: showBrand ? 1 : 0,
           }}
         >
-          Discontent Providers
+          {content.description}
         </Typography>
       </Box>
     </Layout>

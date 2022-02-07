@@ -3,10 +3,10 @@ import { useTheme } from "@mui/material/styles";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
-import { useAnalytics } from "use-analytics";
 import { MuiDivider } from "../components/MuiDivider";
 import ContactForm from "../components/ContactForm";
 import Head from "next/head";
+import { content } from "../utils/strings";
 
 export const ContactPage = () => {
   const { toggleLoading, isLoading } = useMainContext();
@@ -14,15 +14,11 @@ export const ContactPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [hasSent, setHasSent] = React.useState(false);
   const [err, setError] = React.useState(null);
-  const { page } = useAnalytics();
   toggleLoading(false);
-  React.useEffect(() => {
-    page();
-  }, []);
   return (
     <Layout title="Funk-27 | Contact">
       <Head>
-        <title>F27 | Contact Us</title>
+        <title>{content.title} - Contact</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -33,14 +29,14 @@ export const ContactPage = () => {
         <meta
           property="og:title"
           //@ts-ignore
-          content={`Funk-27 | Contact`}
+          content={`${content.title} - Contact`}
           key="title"
         />
 
         <meta
           property="og:description"
           //@ts-ignore
-          content="Contact Funk-27 to discuss the AT // OD podcast, one of our blogs or even the weather. Weather emails may not get a response."
+          content={`${content.title} | Contact | ${content.description}`}
           key="description"
         />
 

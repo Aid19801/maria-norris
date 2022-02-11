@@ -15,7 +15,7 @@ import { useMainContext } from "../context/main";
 import Link from "next/link";
 import { content } from "../utils/strings";
 
-const navOptions = ["home", "about", "contact", "podcast", "academia"];
+const navOptions = ["about", "contact", "podcast", "academia"];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);

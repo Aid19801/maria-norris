@@ -1,16 +1,8 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import { useForm } from "react-hook-form";
 import { useTheme } from "@mui/material/styles";
 import emailjs from "emailjs-com";
-import { useMainContext } from "../context/main";
-import {
-  Box,
-  Typography,
-  Button,
-  Card,
-  Input,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Button, Input, useMediaQuery } from "@mui/material";
 
 type FormType = {
   email: string;
@@ -31,7 +23,6 @@ export default function ContactForm({
   } = useForm();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const { toggleLoading } = useMainContext();
 
   const onSubmit = async (data) => {
     try {
@@ -58,7 +49,7 @@ export default function ContactForm({
         style={{ display: "flex", flexDirection: "column", border: "none" }}
       >
         <Input
-          placeholder="jon@jon.com"
+          placeholder="jon@smith.com"
           {...register("email")}
           sx={{
             marginBottom: 2,
@@ -70,7 +61,7 @@ export default function ContactForm({
           }}
         />
         <Input
-          placeholder="AT // OD podcast"
+          placeholder="Your subject here..."
           {...register("subject")}
           sx={{
             marginBottom: 2,
@@ -82,7 +73,7 @@ export default function ContactForm({
           }}
         />
         <Input
-          placeholder="type message here"
+          placeholder="Your message here..."
           {...register("message")}
           sx={{
             marginBottom: 2,

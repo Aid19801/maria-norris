@@ -20,7 +20,7 @@ const Layout = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { isLoading } = useMainContext();
   return (
-    <div className="layout__container" style={{ marginLeft: 20 }}>
+    <div className="layout__container" style={{ padding: "10px" }}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -74,7 +74,7 @@ const Layout = ({
       />
       <Box
         sx={{
-          mb: "200px",
+          mb: "30px",
           maxWidth: "95vw",
         }}
       >

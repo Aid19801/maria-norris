@@ -133,7 +133,7 @@ export function Footer(): ReactElement {
                     fontWeight: 400,
                   }}
                 >
-                  Maria Norris
+                  {content.title}
                 </Typography>
               </Box>
             </Link>

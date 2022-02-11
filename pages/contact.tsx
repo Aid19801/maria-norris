@@ -7,6 +7,7 @@ import { MuiDivider } from "../components/MuiDivider";
 import ContactForm from "../components/ContactForm";
 import Head from "next/head";
 import { content } from "../utils/strings";
+import { BadgeAvatar } from "../components/Badge";
 
 export const ContactPage = () => {
   const { toggleLoading, isLoading } = useMainContext();
@@ -16,11 +17,9 @@ export const ContactPage = () => {
   const [err, setError] = React.useState(null);
   toggleLoading(false);
   return (
-    <Layout title="Funk-27 | Contact">
+    <Layout title="Contact">
       <Head>
-        <title>{content.title} - Contact</title>
         <link rel="icon" href="/favicon.ico" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/shedShot.png" />
         <meta name="twitter:creator" content="@aidThompsin" />
@@ -36,7 +35,7 @@ export const ContactPage = () => {
         <meta
           property="og:description"
           //@ts-ignore
-          content={`${content.title} | Contact | ${content.description}`}
+          content={content.description}
           key="description"
         />
 
@@ -94,16 +93,54 @@ export const ContactPage = () => {
               }}
             >
               <Typography variant="h6">{err}</Typography>
-              <Button
-                sx={{ mt: 3 }}
-                variant="contained"
-                color="secondary"
-                onClick={() => window.open("https://twitter.com/aidthompsin")}
-              >
-                Try Twitter?
-              </Button>
             </Box>
           )}
+        </Grid>
+        <Grid item xs={12}>
+          <Typography sx={{ textAlign: "center" }}>
+            You can also get in touch via Social channels...
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignItems: "center",
+              mt: 4,
+            }}
+          >
+            {content.socials.map((each) => {
+              return (
+                <Box
+                  key={each.platform}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <BadgeAvatar
+                    externalLink={each.link}
+                    height={!isMobile ? 90 : 100}
+                    width={!isMobile ? 90 : 100}
+                    src={each.logo}
+                  />
+                  <Typography
+                    variant="body1"
+                    fontFamily="monospace"
+                    sx={{
+                      color: "darkgrey",
+                      textAlign: "center",
+                      mb: !isMobile ? 0 : 3,
+                      fontSize: !isMobile ? 12 : 20,
+                    }}
+                  >
+                    {each.platform}
+                  </Typography>
+                </Box>
+              );
+            })}
+          </Box>
         </Grid>
       </Grid>
     </Layout>

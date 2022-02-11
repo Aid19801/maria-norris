@@ -19,6 +19,7 @@ const IndexPage = () => {
       setShowBrand(true);
     }, 1000);
   }, []);
+
   return (
     <Layout title={content.title}>
       <Head>
@@ -52,7 +53,6 @@ const IndexPage = () => {
           justifyContent: "center",
           alignItems: "center",
           mt: "-17px",
-          // ml: "-25px",
         }}
       >
         <Box

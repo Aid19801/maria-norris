@@ -19,7 +19,6 @@ export const ContactPage = () => {
   return (
     <Layout title="Contact">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={content.meta.mainOgImage} />
         <meta
@@ -98,50 +97,59 @@ export const ContactPage = () => {
             </Box>
           )}
         </Grid>
-        <Grid item xs={12}>
+        <Grid
+          item
+          xs={12}
+          display="flex"
+          alignItems="center"
+          flexDirection="column"
+        >
           <Typography sx={{ textAlign: "center" }}>
             You can also get in touch via Social channels...
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              alignItems: "center",
-              mt: 4,
-            }}
-          >
-            {content.socials.map((each) => {
-              return (
-                <Box
-                  key={each.platform}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <BadgeAvatar
-                    externalLink={each.link}
-                    height={!isMobile ? 90 : 100}
-                    width={!isMobile ? 90 : 100}
-                    src={each.logo}
-                  />
-                  <Typography
-                    variant="body1"
-                    fontFamily="monospace"
+
+          <Box sx={{ width: isMobile ? "70%" : "50%" }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+                mt: 4,
+              }}
+            >
+              {content.socials.map((each) => {
+                return (
+                  <Box
+                    key={each.platform}
                     sx={{
-                      color: "darkgrey",
-                      textAlign: "center",
-                      mb: !isMobile ? 0 : 3,
-                      fontSize: !isMobile ? 12 : 20,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
                     }}
                   >
-                    {each.platform}
-                  </Typography>
-                </Box>
-              );
-            })}
+                    <BadgeAvatar
+                      externalLink={each.link}
+                      height={90}
+                      width={90}
+                      src={each.logo}
+                    />
+                    <Typography
+                      variant="body1"
+                      fontFamily="monospace"
+                      sx={{
+                        color: "darkgrey",
+                        textAlign: "center",
+                        mb: !isMobile ? 0 : 3,
+                        fontSize: 12,
+                      }}
+                    >
+                      {each.platform}
+                    </Typography>
+                  </Box>
+                );
+              })}
+            </Box>
           </Box>
         </Grid>
       </Grid>

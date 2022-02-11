@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://funk-27.co.uk
+Host: https://maria-norris.co.uk
 
 # Sitemaps
-Sitemap: https://funk-27.co.uk/sitemap.xml
+Sitemap: https://maria-norris.co.uk/sitemap.xml

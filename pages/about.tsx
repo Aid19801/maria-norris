@@ -54,7 +54,7 @@ export const AboutPage = () => {
         />
       </Head>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={5}>
         <Grid item xs={12}>
           <Box
             sx={{
@@ -71,7 +71,11 @@ export const AboutPage = () => {
         <Grid item xs={12} md={6}>
           <Typography
             variant="body1"
-            sx={{ fontSize: isMobile ? 30 : 40, color: "darkgrey" }}
+            sx={{
+              fontSize: isMobile ? 30 : 40,
+              color: "darkgrey",
+              px: isMobile ? null : 4,
+            }}
           >
             {content.about_para_1}
           </Typography>
@@ -82,6 +86,7 @@ export const AboutPage = () => {
               fontSize: isMobile ? 15 : 20,
               color: "secondary.dark",
               mb: 2,
+              px: isMobile ? null : 4,
             }}
           >
             {content.about_para_2}
@@ -93,6 +98,7 @@ export const AboutPage = () => {
               fontSize: isMobile ? 15 : 20,
               color: "secondary.dark",
               mb: 2,
+              px: isMobile ? null : 4,
             }}
           >
             {content.about_para_3}
@@ -110,10 +116,10 @@ export const AboutPage = () => {
           >
             <Image
               className="rounded-corners"
-              alt="aid thompsin profile picture"
+              alt={`${content.title} profile picture`}
               height={600}
               width={900}
-              src="/shedShot.png"
+              src="/me_lg.jpeg"
             />
             <Typography
               variant="body1"
@@ -124,8 +130,8 @@ export const AboutPage = () => {
               mt={1}
               textAlign="left"
             >
-              The AT // OD studio which is easily the best podcase to have ever
-              emerged from this specific shed.
+              {content.title} has contributed to Academia, Media and Govt
+              advisory initiatives.
             </Typography>
           </Box>
 
@@ -180,7 +186,7 @@ export const AboutPage = () => {
           >
             <Image
               className="rounded-corners"
-              alt="aid thompsin profile picture"
+              alt={content.title}
               height={400}
               width={400}
               src="/me_med.jpeg"

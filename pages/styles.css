@@ -92,14 +92,14 @@ a {
 }
 
 .orange-border {
-  border: 3px solid orange !important;
+  border: 3px solid rgb(247, 6, 207) !important;
 }
 .grey-border {
   border: 3px solid grey !important;
 }
 
 .MuiButton-root.MuiButtonBase-root:hover {
-  background: rgb(224, 153, 87) !important;
+  background: rgb(247, 6, 207) !important;
 }
 .hover-fade {
   transition: 0.3s;
@@ -152,7 +152,7 @@ span img.twitter__img {
 }
 
 .twitter__profilePicName > span > span {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: none !important;
 }
 

@@ -78,14 +78,22 @@ export const AboutPage = () => {
           <Divider sx={{ my: 2 }} />
           <Typography
             variant="body1"
-            sx={{ fontSize: isMobile ? 15 : 20, color: "orange", mb: 2 }}
+            sx={{
+              fontSize: isMobile ? 15 : 20,
+              color: "secondary.dark",
+              mb: 2,
+            }}
           >
             {content.about_para_2}
           </Typography>
           <Divider sx={{ my: 2 }} />
           <Typography
             variant="body1"
-            sx={{ fontSize: isMobile ? 15 : 20, color: "orange", mb: 2 }}
+            sx={{
+              fontSize: isMobile ? 15 : 20,
+              color: "secondary.dark",
+              mb: 2,
+            }}
           >
             {content.about_para_3}
           </Typography>

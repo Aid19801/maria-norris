@@ -23,34 +23,34 @@ export const AboutPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   toggleLoading(false);
   return (
-    <Layout title={`${content.title} - About`}>
+    <Layout title="About">
       <Head>
-        <title>{`${content.title} - About`}</title>
-        <link rel="icon" href="/favicon.ico" />
-
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/shedShot.png" />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
+        <meta name="twitter:image" content={content.meta.mainOgImage} />
+        <meta
+          name="twitter:creator"
+          content={content.meta.twitterSiteCreator}
+        />
+        <meta name="twitter:site" content={content.meta.twitterSite} />
 
         <meta
           property="og:title"
           //@ts-ignore
-          content={`${content.title} - About`}
+          content="About"
           key="title"
         />
 
         <meta
           property="og:description"
           //@ts-ignore
-          content={`${content.title} | About | ${content.description}`}
+          content={content.description}
           key="description"
         />
 
         <meta
           property="og:image"
-          content="/shedShot.png"
-          key="seo blog share image"
+          content={content.meta.mainOgImage}
+          key="Dr Maria W Norris"
         />
       </Head>
 

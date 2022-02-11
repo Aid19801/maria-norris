@@ -37,35 +37,31 @@ const PagePodcastIndex = ({ data }: Props) => {
     }
   }, [data]);
   return (
-    <Layout title="Funk-27 | Podcasts">
+    <Layout title="Enemies Of The People">
       <Head>
-        <title>{content.title} - Podcast</title>
-        <link rel="icon" href="/m.png" />
-
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={data.twitter_image.url} />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
+        <meta name="twitter:image" content={content.meta.podcastImage} />
+        <meta
+          name="twitter:creator"
+          content={content.meta.twitterSiteCreator}
+        />
+        <meta name="twitter:site" content={content.meta.twitterSite} />
         <meta
           property="og:title"
-          //@ts-ignore
-          content={content.podcast_title}
+          content={content.meta.podcastTitle}
           key="title"
         />
 
         <meta
           property="og:description"
-          //@ts-ignore
-          content={content.podcast_para_1}
+          content={content.meta.podcastDescription}
           key="description"
         />
 
         <meta
           property="og:image"
-          //@ts-ignore
-          content={data.twitter_image.url}
-          key="seo blog share image"
+          content={content.meta.podcastImage}
+          key="Dr Maria W Norris"
         />
       </Head>
 

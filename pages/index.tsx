@@ -23,7 +23,7 @@ const IndexPage = () => {
     <Layout title={content.title}>
       <Head>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/shedShot.png" />
+        <meta name="twitter:image" content={content.meta.mainOgImage} />
         <meta
           name="twitter:creator"
           content={content.meta.twitterSiteCreator}
@@ -39,7 +39,7 @@ const IndexPage = () => {
 
         <meta
           property="og:image"
-          content="/podcast_studio1.jpg"
+          content={content.meta.mainOgImage}
           key="Dr Maria W Norris"
         />
       </Head>

@@ -21,14 +21,17 @@ export const ContactPage = () => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/shedShot.png" />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
+        <meta name="twitter:image" content={content.meta.mainOgImage} />
+        <meta
+          name="twitter:creator"
+          content={content.meta.twitterSiteCreator}
+        />
+        <meta name="twitter:site" content={content.meta.twitterSite} />
 
         <meta
           property="og:title"
           //@ts-ignore
-          content={`${content.title} - Contact`}
+          content="Get In Touch"
           key="title"
         />
 
@@ -38,11 +41,10 @@ export const ContactPage = () => {
           content={content.description}
           key="description"
         />
-
         <meta
           property="og:image"
-          content="/shedShot.png"
-          key="seo contact us"
+          content={content.meta.mainOgImage}
+          key="Dr Maria W Norris"
         />
       </Head>
       <Grid container spacing={2}>

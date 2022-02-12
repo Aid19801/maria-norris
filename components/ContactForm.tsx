@@ -1,8 +1,10 @@
 import React, { ReactElement } from "react";
 import { useForm } from "react-hook-form";
 import { useTheme } from "@mui/material/styles";
+import { useMainContext } from "../context/main";
 import emailjs from "emailjs-com";
 import { Box, Button, Input, useMediaQuery } from "@mui/material";
+import fetch from "node-fetch";
 
 type FormType = {
   email: string;
@@ -21,24 +23,31 @@ export default function ContactForm({
     watch,
     formState: { errors },
   } = useForm();
+  const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const onSubmit = async (data) => {
+    toggleLoading(true);
+    const formData = {
+      origin: "maria-norris.co.uk",
+      ...data,
+    };
+
     try {
-      const res = await emailjs.send(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        data,
-        process.env.NEXT_PUBLIC_USER_ID
-      );
-      if (res.status && res.status === 200) {
-        setHasSent(true);
-      }
-    } catch (error) {
-      console.log("error", error);
+      const res = await fetch(process.env.NEXT_PUBLIC_CONTACT_API, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       setHasSent(true);
-      setError("Oh no! It looks like there was a problem.");
+      if (res.status === 200) toggleLoading(false);
+    } catch (error) {
+      setError("There was a problem - perhaps try Social channels instead?");
+      toggleLoading(false);
     }
   };
 

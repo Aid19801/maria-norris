@@ -74,7 +74,7 @@ export default function Nav() {
           ml: "-28px",
           py: 3,
           px: isOpen ? 1 : 0,
-          position: "absolute",
+          position: "fixed",
           top: isMobile ? "15px" : null,
           left: isMobile ? "4px" : null,
           width: isOpen ? navWidth : 0,
@@ -136,7 +136,8 @@ export default function Nav() {
                     sx={{
                       textAlign: isMobile ? "center" : "start",
                       "& span": {
-                        transition: `${(i + 1) * 200}ms`,
+                        transition: "10ms",
+                        // transition: `${(i + 1) * 200}ms`,
                         ml: isOpen ? 0 : "-50px",
                         fontSize: isOpen ? responsiveFontsize : "100px",
                       },

@@ -80,101 +80,8 @@ export const AboutPage = () => {
             {content.about_para_1}
           </Typography>
           <Divider sx={{ my: 2 }} />
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "secondary.dark",
-              mb: 2,
-              px: isMobile ? null : 4,
-            }}
-          >
-            {content.about_para_2}
-          </Typography>
-          <Divider sx={{ my: 2 }} />
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "secondary.dark",
-              mb: 2,
-              px: isMobile ? null : 4,
-            }}
-          >
-            {content.about_para_3}
-          </Typography>
-
-          <MuiDivider left />
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Image
-              className="rounded-corners"
-              alt={`${content.title} profile picture`}
-              height={600}
-              width={900}
-              src="/me_lg.jpeg"
-            />
-            <Typography
-              variant="body1"
-              fontFamily="monospace"
-              fontSize={10}
-              width={isMobile ? "80%" : "80%"}
-              color="secondary.dark"
-              mt={1}
-              textAlign="left"
-            >
-              {content.title} has contributed to Academia, Media and Govt
-              advisory initiatives.
-            </Typography>
-          </Box>
-
-          <MuiDivider right prim />
-
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "white",
-              p: 2,
-              mt: 2,
-              bgcolor: "darkgrey",
-            }}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "black",
-              bgcolor: "lightgrey",
-              padding: 2,
-              mt: 2,
-            }}
-          >
-            But also the leap into electronic typesetting, remaining essentially
-            unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently
-            with desktop publishing software like Aldus PageMaker including
-            versions of Lorem Ipsum.
-          </Typography>
         </Grid>
-        <Grid item xs={12} md={6} alignItems="center">
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               width: "100%",
@@ -226,6 +133,120 @@ export const AboutPage = () => {
               })}
             </Box>
           </Box>
+        </Grid>
+        <Grid item xs={12} md={6} alignItems="center">
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              className="rounded-corners"
+              alt={content.title}
+              height={400}
+              width={400}
+              src="/me_med.jpeg"
+            />
+            <Typography
+              variant="body1"
+              fontFamily="monospace"
+              fontSize={10}
+              width={isMobile ? "80%" : "50%"}
+              color="secondary"
+              mt={2}
+              textAlign={isMobile ? "center" : "left"}
+            >
+              {content.title}
+            </Typography>
+          </Box>
+          {!isMobile && <Divider sx={{ my: 2 }} />}
+        </Grid>
+        <Grid item xs={12} md={6} alignItems="center">
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: isMobile ? 15 : 20,
+              color: "secondary.dark",
+              mb: 2,
+              px: isMobile ? null : 4,
+            }}
+          >
+            {content.about_para_2}
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} alignItems="center">
+          <MuiDivider right prim />
+        </Grid>
+        <Grid item xs={12} md={4} alignItems="center">
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: isMobile ? 15 : 20,
+              color: "white",
+              p: 7,
+              // mt: 2,
+              bgcolor: "darkgrey",
+              borderRadius: 25,
+            }}
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={4} alignItems="center">
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: isMobile ? 15 : 20,
+              color: "secondary.dark",
+              mb: 2,
+              // px: isMobile ? null : 4,
+              p: 7,
+            }}
+          >
+            {content.about_para_3}
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          alignItems="center"
+          sx={{ mb: isMobile ? "50px" : "inherit" }}
+        >
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: isMobile ? 15 : 20,
+              color: "white",
+              p: 7,
+              // mt: 2,
+              bgcolor: "darkgrey",
+              borderRadius: 25,
+            }}
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </Typography>
         </Grid>
       </Grid>
     </Layout>

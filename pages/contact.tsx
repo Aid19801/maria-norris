@@ -16,6 +16,7 @@ export const ContactPage = () => {
   const [hasSent, setHasSent] = React.useState(false);
   const [err, setError] = React.useState(null);
   toggleLoading(false);
+
   return (
     <Layout title="Contact">
       <Head>

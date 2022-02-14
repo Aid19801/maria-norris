@@ -76,6 +76,7 @@ const Layout = ({
         sx={{
           mb: "30px",
           maxWidth: "95vw",
+          mt: "60px",
         }}
       >
         {isLoading ? <Modal /> : children}

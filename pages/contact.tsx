@@ -47,7 +47,7 @@ export const ContactPage = () => {
           key="Dr Maria W Norris"
         />
       </Head>
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item xs={12}>
           <Box
             sx={{

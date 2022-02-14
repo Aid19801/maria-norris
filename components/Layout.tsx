@@ -77,6 +77,11 @@ const Layout = ({
           mb: "30px",
           maxWidth: "95vw",
           mt: "60px",
+
+          width: " 100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         {isLoading ? <Modal /> : children}

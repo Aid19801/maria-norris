@@ -82,6 +82,7 @@ const Layout = ({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "column",
         }}
       >
         {isLoading ? <Modal /> : children}

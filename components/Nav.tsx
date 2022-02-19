@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 import { useMainContext } from "../context/main";
 import Link from "next/link";
 
-const navOptions = ["about", "podcast", "contact"];
+const navOptions = ["bio", "enemies of the people", "speaking", "contact"];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -111,9 +111,11 @@ export default function Nav() {
         <Box role="presentation">
           <List component="nav">
             {navOptions.map((eachOption, i) => {
+              const dynamicRouteName =
+                eachOption === "enemies of the people" ? "podcast" : eachOption;
               return (
                 <React.Fragment key={eachOption}>
-                  <Link href={`/${eachOption}`} passHref>
+                  <Link href={`/${dynamicRouteName}`} passHref>
                     <ListItem
                       button
                       component="a"

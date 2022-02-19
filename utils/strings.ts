@@ -1,25 +1,103 @@
 export const content = {
   title: "Dr Maria W. Norris",
-  description:
-    "Academic, podcaster, advisor on National Security and Extremism",
+  description: "Academic, advisor on National Security and Extremism",
   about_para_1:
-    "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally.",
+    "Dr Maria W. Norris is an Assistant Professor of International Relations at Coventry University and an Honorary Research Fellow at the University of Warwick. Her work focuses on UK counterterrorism, white nationalism, and extremism. She has spent the last ten years researching the UK counterterrorism strategy and how it relates to questions of nationalism and belonging. Her most recent research project is on the history of white nationalism in the United Kingdom. Maria has previously worked at the University of Warwick and the London School of Economics and Political Science.",
   about_para_2:
-    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    "Her writing has appeared on The Independent, The New Statesman, and the Byline Times. She is also the creator and host of Enemies of the People, a podcast about extremism in the 21st Century, which is one of the top politics podcasts in the UK. She has been featured on tv shows such as BBC Newsnight due to her expertise on extremism.",
   about_para_3:
-    "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish.",
+    "Maria is an award-winning teacher and a Fellow of the Higher Education Academy. She currently teaches modules on terrorism studies and counterterrorism, as well as supervising PhD students on the same topic.",
+  about_img_1: "/maria_main.jpeg",
+  about_img_2: "/maria_pod.jpeg",
+  about_img_3: "/maria_newsnight.jpeg",
   socials_description: "Get in touch on any of the platforms listed below...",
   contact_description:
     "Feel free to get in touch with regards to speaking appearances, the podcast, academia or anything else...",
   podcast_title: "Enemies of the People",
   podcast_para_1:
-    "Enemies of the People is a podcast aiming to explore the realities of extremism in the 21st Century.",
+  "EOTP is a podcast about extremism in the 21st Century. Join Dr Maria Norris in conversation with authors, politicians, artists, and policy makers about nationalism, fascism, misogyny, and all other forms of extremism threatening our society.",
   podcast_para_2:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "Follow us on Twitter @EnemiesPodFollow Maria on Twitter @MariaWNorris.",
+
+  podcast_review_1: "/podc_review_1.png",
+  podcast_review_2: "/podc_review_2.png",
+  podcast_review_3: "/podc_review_3.png",
+  podcast_links: [
+    {
+      platform: "apple",
+      link: "https://podcasts.apple.com/gb/podcast/enemies-of-the-people/id1581679731",
+    },
+    {
+      platform: "spotify",
+      link: "https://open.spotify.com/show/7qTDKWAJm2MWWcwUOTP9tL?si=a003a90b4bd94d86",
+    },
+    {
+      platform: "buzzsprout",
+      link: "https://enemiesofthepeople.buzzsprout.com/",
+    },
+    {
+      platform: "amazon",
+      link: "https://music.amazon.com/podcasts/c3523221-73a0-49cd-a27e-649dada6e0c8/enemies-of-the-people",
+    },
+    {
+      platform: "google",
+      link: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODA3ODkzLnJzcw",
+    },
+    {
+      platform: "twitter",
+      link: "https://twitter.com/EnemiesPod",
+    },
+
+  ],
+  speaking: {
+    title: "Speaking",
+    para_1: "Maria has spoken about her research on extremism and the far-right on television, radio, and podcasts, including appearing on BBC Newsnight. She has also given several lectures on counterterrorism, human rights, and the far-right in the UK and abroad.",
+    main_img: "/lse_uni.jpg",
+    rowOfImgs: [
+    {
+      img: "/maria_newsnight.jpeg",
+      text: "BBC Newsnight"
+    },  
+    {
+      img: "/maria_owenJones.png",
+      text: "The Owen Jones Show"
+    },  
+    {
+      img: "/maria_lse.png",
+      text: "LSE Newsroom"
+    },  
+    // {
+    //   img: "/audience.png",
+    //   isBookMe: true,
+    //   text: "Book Me For Your Event / Broadcast"
+    // },  
+    ],
+  },
   as_seen_on: [
     {
       name: "Byline Times",
       logo: "/byline.jpeg",
+      link: "https://bylinetimes.com/author/drmarianorris/",
+    },
+    {
+      name: "BBC Newsnight",
+      logo: "/bbc_newsnight.jpeg",
+      link: "https://twitter.com/bbcnewsnight/status/1117912522063933440",
+    },
+    {
+      name: "Open Democracy",
+      logo: "/open_democracy.png",
+      link: "https://www.opendemocracy.net/en/author/maria-norris/"
+    },
+    {
+      name: "Politics.co.uk",
+      logo: "/politicsCoUk.png",
+      link: "https://www.politics.co.uk/blog/2017/02/20/from-trump-to-nail-bombs-how-we-normalised-the-far-right/",
+    },
+    {
+      name: "Independent",
+      logo: "/the_independent.jpeg",
+      link: "https://www.independent.co.uk/author/maria-norris"
     },
   ],
   socials: [
@@ -47,16 +125,12 @@ export const content = {
   footer: {
     linksLeft: [
       {
-        text: "Email Us",
+        text: "Email",
         link: "/contact",
       },
       {
-        text: "About Us",
-        link: "/about",
-      },
-      {
-        text: "Facebook",
-        link: "#",
+        text: "About",
+        link: "/bio",
       },
       {
         text: "Linkedin",
@@ -65,12 +139,12 @@ export const content = {
     ],
     linksCenter: [
       {
-        text: "Patreon",
-        link: "#",
+        text: "LSE",
+        link: "https://www.law.ox.ac.uk/people/maria-w-norris",
       },
       {
         text: "Conventry University",
-        link: "#",
+        link: "https://pureportal.coventry.ac.uk/en/persons/maria-norris",
       },
       {
         text: "Twitter - @MariaWNorris",
@@ -82,22 +156,22 @@ export const content = {
       },
     ],
     linksRight: [
-        {
-            text: "Podcast Home",
-            link: "/podcast",
-          },
-          {
-            text: "YouTube",
-            link: "#",
-          },
-          {
-            text: "Apple Podcasts",
-            link: "#",
-          },
-          {
-            text: "Spotify",
-            link: "#",
-          }
+      {
+        text: "Podcast Home",
+        link: "/podcast",
+      },
+      {
+        text: "YouTube",
+        link: "https://www.youtube.com/watch?v=y3nb1fvj_Gk",
+      },
+      {
+        text: "Apple Podcasts",
+        link: "https://podcasts.apple.com/gb/podcast/enemies-of-the-people/id1581679731",
+      },
+      {
+        text: "Spotify",
+        link: "https://open.spotify.com/show/7qTDKWAJm2MWWcwUOTP9tL?si=a003a90b4bd94d86",
+      },
     ],
   },
 };

@@ -17,13 +17,13 @@ const asSeenOnImgs = [
   "https://www.logo-designer.co/wp-content/uploads/2017/04/2017-huffpost-new-logo-design-2.png",
 ];
 
-export const AboutPage = () => {
+export const BioPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   toggleLoading(false);
   return (
-    <Layout title="About">
+    <Layout title="Bio">
       <Head>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={content.meta.mainOgImage} />
@@ -65,7 +65,7 @@ export const AboutPage = () => {
               // textAlign: isMobile ? "center" : "start",
             }}
           >
-            <Typography variant="h1">About</Typography>
+            <Typography variant="h1">Bio</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -96,18 +96,18 @@ export const AboutPage = () => {
               alt={content.title}
               height={400}
               width={400}
-              src="/me_med.jpeg"
+              src={content.about_img_1}
             />
             <Typography
               variant="body1"
               fontFamily="monospace"
               fontSize={10}
-              width={isMobile ? "80%" : "50%"}
+              // width={isMobile ? "80%" : "50%"}
               color="secondary"
               mt={2}
               textAlign={isMobile ? "center" : "left"}
             >
-              {content.title}
+              {content.title} has featured on
             </Typography>
             <Box
               sx={{
@@ -127,6 +127,7 @@ export const AboutPage = () => {
                       height={50}
                       width={50}
                       src={each.logo}
+                      onClick={() => window.open(each.link, "_blank")}
                     />
                   </div>
                 );
@@ -134,7 +135,97 @@ export const AboutPage = () => {
             </Box>
           </Box>
         </Grid>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: isMobile ? "column-reverse" : "row",
+            marginTop: isMobile ? "inherit" : "30px",
+            paddingLeft: isMobile ? "40px" : "inherit",
+            paddingTop: isMobile ? "40px" : "inherit",
+          }}
+        >
+          <Grid
+            item
+            xs={12}
+            md={6}
+            alignItems="center"
+            sx={{ mt: isMobile ? 5 : "inherit" }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                className="rounded-corners"
+                alt={content.title}
+                height={400}
+                width={400}
+                src={content.about_img_2}
+              />
+              <Typography
+                variant="body1"
+                fontFamily="monospace"
+                fontSize={10}
+                // width={isMobile ? "80%" : "50%"}
+                color="secondary"
+                mt={2}
+                textAlign={isMobile ? "center" : "left"}
+              >
+                The Enemies Of The People podcast
+              </Typography>
+            </Box>
+            {!isMobile && <Divider sx={{ my: 2 }} />}
+          </Grid>
+          <Grid item xs={12} md={6} alignItems="center">
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: isMobile ? 30 : 40,
+                color: "secondary.dark",
+                mb: 2,
+                px: isMobile ? null : 4,
+              }}
+            >
+              {content.about_para_2}
+            </Typography>
+          </Grid>
+        </div>
+        <Grid item xs={12} alignItems="center">
+          <MuiDivider right prim />
+        </Grid>
+
         <Grid item xs={12} md={6} alignItems="center">
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: isMobile ? 30 : 20,
+              color: "darkgrey",
+              px: isMobile ? "30px" : 7,
+              py: isMobile ? "50px" : 7,
+              mb: isMobile ? "30px" : "inherit",
+              textAlign: isMobile ? "center" : "inherit",
+            }}
+          >
+            {content.about_para_3}
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          alignItems="center"
+          sx={{
+            mb: isMobile ? "50px" : "inherit",
+            pt: isMobile ? "0px !important" : "inherit",
+          }}
+        >
           <Box
             sx={{
               width: "100%",
@@ -147,110 +238,27 @@ export const AboutPage = () => {
             <Image
               className="rounded-corners"
               alt={content.title}
-              height={400}
-              width={400}
-              src="/me_med.jpeg"
+              // layout="fill"
+              height={350}
+              width={500}
+              src={content.about_img_3}
             />
             <Typography
               variant="body1"
               fontFamily="monospace"
               fontSize={10}
-              width={isMobile ? "80%" : "50%"}
+              // width={isMobile ? "80%" : "50%"}
               color="secondary"
               mt={2}
               textAlign={isMobile ? "center" : "left"}
             >
-              {content.title}
+              BBC Newsnight
             </Typography>
           </Box>
-          {!isMobile && <Divider sx={{ my: 2 }} />}
-        </Grid>
-        <Grid item xs={12} md={6} alignItems="center">
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "secondary.dark",
-              mb: 2,
-              px: isMobile ? null : 4,
-            }}
-          >
-            {content.about_para_2}
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} alignItems="center">
-          <MuiDivider right prim />
-        </Grid>
-        <Grid item xs={12} md={4} alignItems="center">
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "white",
-              p: 7,
-              // mt: 2,
-              bgcolor: "darkgrey",
-              borderRadius: 25,
-            }}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={4} alignItems="center">
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "secondary.dark",
-              mb: 2,
-              // px: isMobile ? null : 4,
-              p: 7,
-            }}
-          >
-            {content.about_para_3}
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          alignItems="center"
-          sx={{ mb: isMobile ? "50px" : "inherit" }}
-        >
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: isMobile ? 15 : 20,
-              color: "white",
-              p: 7,
-              // mt: 2,
-              bgcolor: "darkgrey",
-              borderRadius: 25,
-            }}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Typography>
         </Grid>
       </Grid>
     </Layout>
   );
 };
 
-export default AboutPage;
+export default BioPage;

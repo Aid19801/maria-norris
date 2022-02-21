@@ -9,7 +9,7 @@ export const content = {
     "Maria is an award-winning teacher and a Fellow of the Higher Education Academy. She currently teaches modules on terrorism studies and counterterrorism, as well as supervising PhD students on the same topic.",
   about_img_1: "/maria_main.jpeg",
   about_img_2: "/maria_pod.jpeg",
-  about_img_3: "/maria_newsnight.jpeg",
+  about_img_3: "/lse_uni.jpg",
   socials_description: "Get in touch on any of the platforms listed below...",
   contact_description:
     "Feel free to get in touch with regards to speaking appearances, the podcast, academia or anything else...",
@@ -49,6 +49,38 @@ export const content = {
     },
 
   ],
+  writing: {
+    title: "Writing",
+    para_1: "Maria has written extensively in the media about UK counterterrorism and the far-right, with her work appearing in outlets such as The Independent, The New Statesman, and the Byline Times, Open Democracy and The Conversation amongst others. Her academic research has been published in leading academic journals and she is currently finishing up a manuscript on the history of the UK Counterterrorism strategy, to be published in 2023.",
+    main_img_lg: "/laptop_lg.jpg",
+    main_img_sm: "/laptop_sm.jpg",
+    rowOfImgs: [
+    {
+      img: "/press_1.png",
+      text: "Byline Times"
+    },  
+    {
+      img: "/press_8.png",
+      text: "New Statesman"
+    },  
+    {
+      img: "/press_2.png",
+      text: "Byline Times"
+    },  
+    {
+      img: "/press_5.png",
+      text: "The Independent"
+    },  
+    {
+      img: "/press_7.png",
+      text: "The Independent"
+    },  
+    {
+      img: "/press_6.png",
+      text: "New Statesman"
+    },  
+  ]
+  },
   speaking: {
     title: "Speaking",
     para_1: "Maria has spoken about her research on extremism and the far-right on television, radio, and podcasts, including appearing on BBC Newsnight. She has also given several lectures on counterterrorism, human rights, and the far-right in the UK and abroad.",

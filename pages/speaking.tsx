@@ -4,10 +4,8 @@ import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
 import { MuiDivider } from "../components/MuiDivider";
-import ContactForm from "../components/ContactForm";
 import Head from "next/head";
 import { content } from "../utils/strings";
-import { BadgeAvatar } from "../components/Badge";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,8 +13,6 @@ export const SpeakingPage = () => {
   const { toggleLoading, isLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [hasSent, setHasSent] = React.useState(false);
-  const [err, setError] = React.useState(null);
   toggleLoading(false);
 
   return (
@@ -33,7 +29,7 @@ export const SpeakingPage = () => {
         <meta
           property="og:title"
           //@ts-ignore
-          content="Maria W Norris - Speaker"
+          content="Maria W Norris - Speaker, Writer and Academic"
           key="title"
         />
 
@@ -207,22 +203,6 @@ export const SpeakingPage = () => {
             </Box>
           </Link>
         </Grid>
-
-        {/* <Grid item xs={12} md={3}>
-          <Box sx={{ borderRadius: 25, padding: 2, border: "1px solid red" }}>
-            Byline
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Box sx={{ borderRadius: 25, padding: 2, border: "1px solid red" }}>
-            Some Podcast
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Box sx={{ borderRadius: 25, padding: 2, border: "1px solid red" }}>
-            Somrthing else
-          </Box>
-        </Grid> */}
       </Grid>
     </Layout>
   );

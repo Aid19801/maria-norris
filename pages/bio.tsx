@@ -238,7 +238,6 @@ export const BioPage = () => {
             <Image
               className="rounded-corners"
               alt={content.title}
-              // layout="fill"
               height={350}
               width={500}
               src={content.about_img_3}
@@ -252,7 +251,7 @@ export const BioPage = () => {
               mt={2}
               textAlign={isMobile ? "center" : "left"}
             >
-              BBC Newsnight
+              LSE
             </Typography>
           </Box>
         </Grid>

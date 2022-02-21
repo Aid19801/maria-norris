@@ -4,25 +4,27 @@ import Box from "@mui/material/Box";
 import {
   Badge,
   Drawer,
-  ListItemIcon,
   List,
   ListItemText,
   ListItem,
   Divider,
-  Button,
 } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import CloseIcon from "@mui/icons-material/Close";
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMainContext } from "../context/main";
 import Link from "next/link";
 
-const navOptions = ["bio", "enemies of the people", "speaking", "contact"];
+const navOptions = [
+  "bio",
+  "enemies of the people",
+  "speaking",
+  "writing",
+  "contact",
+];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);

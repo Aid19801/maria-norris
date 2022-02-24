@@ -44,6 +44,7 @@ export default function ContactForm({
         body: JSON.stringify(formData),
       });
       setHasSent(true);
+      console.log("res back is ", res);
       if (res.status === 200) toggleLoading(false);
       if (res.status === 404) {
         setError("There was a problem - perhaps try Social channels instead?");

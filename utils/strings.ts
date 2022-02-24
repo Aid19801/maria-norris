@@ -159,7 +159,7 @@ export const content = {
     podcastTitle: "Enemies Of The People",
     podcastDescription: "A podcast about extremism in the 21st Century.",
     podcastImage: "/poddy.png",
-    mainOgImage: "/mainOgImage.png",
+    mainOgImage: "/mainOgImage.jpeg",
   },
   footer: {
     linksLeft: [

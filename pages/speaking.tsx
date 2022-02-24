@@ -33,10 +33,12 @@ export const SpeakingPage = () => {
           key="title"
         />
 
+        <meta name="description" content={content.speaking_description} />
+
         <meta
           property="og:description"
           //@ts-ignore
-          content={content.speaking.para_1}
+          content={content.speaking_description}
           key="description"
         />
         <meta

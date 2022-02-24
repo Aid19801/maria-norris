@@ -41,6 +41,9 @@ export const ContactPage = () => {
           content={content.description}
           key="description"
         />
+
+        <meta name="description" content={content.contact_description} />
+
         <meta
           property="og:image"
           content={content.meta.mainOgImage}

@@ -34,10 +34,11 @@ export const WritingPage = () => {
           key="title"
         />
 
+        <meta name="description" content={content.writing_description} />
         <meta
           property="og:description"
           //@ts-ignore
-          content={content.writing.para_1}
+          content={content.writing_description}
           key="description"
         />
         <meta

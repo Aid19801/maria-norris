@@ -32,6 +32,7 @@ const IndexPage = () => {
         <meta name="twitter:site" content={content.meta.twitterSite} />
         <meta property="og:title" content={content.title} key="title" />
 
+        <meta name="description" content={content.home_description} />
         <meta
           property="og:description"
           content={content.description}

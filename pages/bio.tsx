@@ -8,15 +8,6 @@ import { MuiDivider } from "../components/MuiDivider";
 import Head from "next/head";
 import { content } from "../utils/strings";
 
-const asSeenOnImgs = [
-  "https://cdn-radiotime-logos.tunein.com/s17569g.png",
-  "https://icon-library.com/images/bbc-icon/bbc-icon-14.jpg",
-  "https://thegrumpydads.files.wordpress.com/2020/11/full-design.jpg?w=1024",
-  "https://www.ytas.org.uk/wp-content/uploads/2019/04/fringe-logo.jpg",
-  "https://www.chortle.co.uk/images/photos/small/leicester-square-theatre.jpg",
-  "https://www.logo-designer.co/wp-content/uploads/2017/04/2017-huffpost-new-logo-design-2.png",
-];
-
 export const BioPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
@@ -46,7 +37,7 @@ export const BioPage = () => {
           content={content.description}
           key="description"
         />
-
+        <meta name="description" content={content.bio_description} />
         <meta
           property="og:image"
           content={content.meta.mainOgImage}

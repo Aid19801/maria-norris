@@ -16,6 +16,9 @@ type Props = {
   data: any;
 };
 
+const IMG_WIDTH = 300;
+const IMG_HEIGHT = 150;
+
 const PagePodcastIndex = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -44,9 +47,11 @@ const PagePodcastIndex = ({ data }: Props) => {
 
         <meta
           property="og:description"
-          content={content.meta.podcastDescription}
+          content={content.podcast_description}
           key="description"
         />
+
+        <meta name="description" content={content.podcast_description} />
 
         <meta
           property="og:image"
@@ -82,7 +87,7 @@ const PagePodcastIndex = ({ data }: Props) => {
 
       <MuiDivider straight />
 
-      <Grid container spacing={2} sx={{}}>
+      <Grid container spacing={2} sx={{ justifyContent: "center" }}>
         <Grow in={true}>
           <Grid item xs={12} md={6}>
             <ContentCard
@@ -126,37 +131,37 @@ const PagePodcastIndex = ({ data }: Props) => {
                 flexWrap: "wrap",
                 mt: 2,
                 p: 2,
-                justifyContent: "center",
+                justifyContent: isDesktop ? "space-between" : "center",
                 minHeight: isDesktop ? 500 : 400,
               }}
             >
               <Image
                 className="podcast__review_img"
                 src={content.podcast_review_1}
-                height={150}
-                width={310}
+                height={IMG_HEIGHT}
+                width={IMG_WIDTH}
               />
               <Image
                 className="podcast__review_img"
                 src={content.podcast_review_2}
-                height={150}
-                width={310}
+                height={IMG_HEIGHT}
+                width={IMG_WIDTH}
               />
               <Image
                 className="podcast__review_img"
                 src={content.podcast_review_3}
-                height={150}
-                width={310}
+                height={IMG_HEIGHT}
+                width={IMG_WIDTH}
               />
 
-              {!isDesktop && (
+              {/* {!isDesktop && (
                 <Image
                   className="podcast__review_img"
                   src={content.podcast_review_1}
                   height={150}
-                  width={350}
+                  width={310}
                 />
-              )}
+              )} */}
             </Card>
           </Grid>
         </Grow>

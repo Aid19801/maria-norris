@@ -1,6 +1,12 @@
 export const content = {
   title: "Dr Maria W. Norris",
   description: "Academic, advisor on National Security and Extremism",
+  bio_description: "About the Academic, advisor and podcast host, Dr Maria W. Norris",
+  contact_description: "Get in touch to discuss my anything in my field of expertise or Writing or Speaking engagements.",
+  podcast_description: "Enemies of the People is a weekly podcast inviting guests on to discuss Extremism in the 21st Century.",
+  speaking_description: "Dr Maria W. Norris is available for Media and Speaking appearances.",
+  writing_description: "Dr Maria W. Norris has contributed to an impressive range of publications from within the British press.",
+  home_description: "Welcome to the website for Academic, Advisor on Extremism & National Security - and Podcast host, Dr Maria W. Norris",
   about_para_1:
     "Dr Maria W. Norris is an Assistant Professor of International Relations at Coventry University and an Honorary Research Fellow at the University of Warwick. Her work focuses on UK counterterrorism, white nationalism, and extremism. She has spent the last ten years researching the UK counterterrorism strategy and how it relates to questions of nationalism and belonging. Her most recent research project is on the history of white nationalism in the United Kingdom. Maria has previously worked at the University of Warwick and the London School of Economics and Political Science.",
   about_para_2:
@@ -10,9 +16,6 @@ export const content = {
   about_img_1: "/maria_main.jpeg",
   about_img_2: "/maria_pod.jpeg",
   about_img_3: "/lse_uni.jpg",
-  socials_description: "Get in touch on any of the platforms listed below...",
-  contact_description:
-    "Feel free to get in touch with regards to speaking appearances, the podcast, academia or anything else...",
   podcast_title: "Enemies of the People",
   podcast_para_1:
   "EOTP is a podcast about extremism in the 21st Century. Join Dr Maria Norris in conversation with authors, politicians, artists, and policy makers about nationalism, fascism, misogyny, and all other forms of extremism threatening our society.",

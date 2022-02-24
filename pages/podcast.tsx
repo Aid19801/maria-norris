@@ -33,7 +33,10 @@ const PagePodcastIndex = ({ data }: Props) => {
     <Layout title="Enemies Of The People">
       <Head>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={content.meta.podcastImage} />
+        <meta
+          name="twitter:image"
+          content={`${content.HOME_URL}${content.meta.podcastImage}`}
+        />
         <meta
           name="twitter:creator"
           content={content.meta.twitterSiteCreator}
@@ -55,7 +58,7 @@ const PagePodcastIndex = ({ data }: Props) => {
 
         <meta
           property="og:image"
-          content={content.meta.podcastImage}
+          content={`${content.HOME_URL}${content.meta.podcastImage}`}
           key="Dr Maria W Norris"
         />
       </Head>

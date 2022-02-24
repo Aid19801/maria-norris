@@ -1,4 +1,5 @@
 export const content = {
+  HOME_URL: "https://mariawnorris.com",
   title: "Dr Maria W. Norris",
   description: "Academic, advisor on National Security and Extremism",
   bio_description: "About the Academic, advisor and podcast host, Dr Maria W. Norris",

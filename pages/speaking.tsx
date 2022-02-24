@@ -19,7 +19,10 @@ export const SpeakingPage = () => {
     <Layout title="Speaking">
       <Head>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={content.meta.mainOgImage} />
+        <meta
+          name="twitter:image"
+          content={`${content.HOME_URL}${content.meta.mainOgImage}`}
+        />
         <meta
           name="twitter:creator"
           content={content.meta.twitterSiteCreator}
@@ -43,7 +46,7 @@ export const SpeakingPage = () => {
         />
         <meta
           property="og:image"
-          content={content.meta.mainOgImage}
+          content={`${content.HOME_URL}${content.meta.mainOgImage}`}
           key="Dr Maria W Norris"
         />
       </Head>

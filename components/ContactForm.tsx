@@ -30,7 +30,7 @@ export default function ContactForm({
   const onSubmit = async (data) => {
     toggleLoading(true);
     const formData = {
-      origin: "maria-norris.co.uk",
+      origin: "mariawnorris.com",
       ...data,
     };
 

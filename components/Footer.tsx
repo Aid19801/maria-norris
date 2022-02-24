@@ -2,7 +2,6 @@ import React, { ReactElement } from "react";
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
-import { MuiDivider } from "./MuiDivider";
 import { content } from "../utils/strings";
 
 export function Footer(): ReactElement {

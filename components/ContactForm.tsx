@@ -45,6 +45,10 @@ export default function ContactForm({
       });
       setHasSent(true);
       if (res.status === 200) toggleLoading(false);
+      if (res.status === 404) {
+        setError("There was a problem - perhaps try Social channels instead?");
+        toggleLoading(false);
+      }
     } catch (error) {
       setError("There was a problem - perhaps try Social channels instead?");
       toggleLoading(false);

@@ -35,6 +35,7 @@ export default function ContactForm({
     };
 
     try {
+      // const res = await fetch("http://localhost:5000/send-email", {
       const res = await fetch(process.env.NEXT_PUBLIC_CONTACT_API, {
         method: "POST",
         mode: "cors",
@@ -50,7 +51,6 @@ export default function ContactForm({
         toggleLoading(false);
       }
       const json = await res.json();
-      console.log("json back ", json);
       if (json.status === 200) toggleLoading(false);
       if (json.status === 404) {
         setError("There was a problem - perhaps try Social channels instead?");

@@ -67,11 +67,11 @@ export default function Custom404() {
                 <Link href="/" as="/">
                   <a className="funk__btn">Home</a>
                 </Link>
-                <Link href="/podcast" as="/podcast">
-                  <a className="funk__btn">Podcast</a>
+                <Link href="/contact" as="/contact">
+                  <a className="funk__btn">Contact</a>
                 </Link>
-                <Link href="/about" as="blog">
-                  <a className="funk__btn">About</a>
+                <Link href="/bio" as="bio">
+                  <a className="funk__btn">Bio</a>
                 </Link>
               </Box>
             </Box>

@@ -79,6 +79,10 @@ export const content = {
       img: "/press_6.png",
       text: "New Statesman"
     },  
+    {
+      img: "/press_9.png",
+      text: "The Independent"
+    },  
   ]
   },
   speaking: {
@@ -190,7 +194,7 @@ export const content = {
     linksRight: [
       {
         text: "Podcast Home",
-        link: "/podcast",
+        link: "https://enemiesofthepeople.buzzsprout.com/",
       },
       {
         text: "YouTube",

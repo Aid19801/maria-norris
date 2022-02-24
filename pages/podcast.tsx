@@ -68,7 +68,7 @@ const PagePodcastIndex = ({ data }: Props) => {
       >
         Podcast
       </Typography>
-      {/* <Typography
+      <Typography
         variant="h5"
         color="secondary.main.light"
         sx={{
@@ -78,7 +78,7 @@ const PagePodcastIndex = ({ data }: Props) => {
         }}
       >
         {content.podcast_title}
-      </Typography> */}
+      </Typography>
 
       <MuiDivider straight />
 

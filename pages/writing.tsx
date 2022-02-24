@@ -10,28 +10,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { DoubleArrow } from "@mui/icons-material";
 
-const ctaBtnStyles = {
-  py: 1,
-  px: 2,
-  minWidth: 150,
-  border: "3px solid black",
-  borderRadius: 24,
-  bgcolor: "darkgrey",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  transition: "300ms",
-  marginTop: 2,
-  "&:hover": {
-    background: "pink",
-  },
-  "&:nth-child(1)": {
-    marginTop: 0,
-  },
-  "> p": {
-    color: "white",
-  },
-};
 export const WritingPage = () => {
   const { toggleLoading, isLoading } = useMainContext();
   const theme = useTheme();
@@ -129,7 +107,7 @@ export const WritingPage = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              background: "pink",
+              background: (theme) => theme.palette.primary.main,
               transform: "skewY(2deg)",
               padding: 1,
               justifyContent: "center",
@@ -167,7 +145,7 @@ export const WritingPage = () => {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              background: "pink",
+              background: (theme) => theme.palette.primary.main,
               transform: "skewY(-2deg)",
               padding: 2,
             }}
@@ -282,16 +260,17 @@ export const WritingPage = () => {
         container
         spacing={2}
         sx={{
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          border: "1px solid red",
+          alignItems: "flex-start",
+          justifyContent: "center",
         }}
       >
         <Grid item xs={12} sm={6}>
           <Box
             sx={{
               width: "100%",
-              border: "1px solid pink",
+              background: (theme) => theme.palette.secondary.light,
+              p: 1,
+              transform: "skewY(2deg)",
             }}
           >
             <img
@@ -299,60 +278,43 @@ export const WritingPage = () => {
               alt="andres brevik"
               height="100%"
               width="100%"
+              style={{ transform: "skewY(-2deg)" }}
             />
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} justifyContent="center" alignItems="center">
+        <Grid item xs={12} sm={6}>
           <Box
-            className="flex-writing-btns"
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              height: "100%",
-              border: "1px solid red",
-              alignItems: "center",
+              width: "100%",
+              background: (theme) => theme.palette.secondary.light,
+              p: 1,
+              transform: "skewY(-2deg)",
             }}
           >
-            <Link href="/speaking">
-              <Box sx={ctaBtnStyles}>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 14,
-                  }}
-                >
-                  Speaking
-                  <DoubleArrow />
-                </Typography>
-              </Box>
-            </Link>
-            <Link href="/contact">
-              <Box sx={ctaBtnStyles}>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    fontSize: 14,
-                    width: "80%",
-                    textAlign: "center",
-                  }}
-                >
-                  get in touch
-                  <DoubleArrow />
-                </Typography>
-              </Box>
-            </Link>
+            <img
+              src={content.writing.rowOfImgs[6].img}
+              alt="andres brevik"
+              height="100%"
+              width="100%"
+              style={{ transform: "skewY(2deg)" }}
+            />
           </Box>
         </Grid>
       </Grid>
-      <MuiDivider straight prim />
+      <MuiDivider straight />
+
+      <Link href="/contact">
+        <Button
+          sx={{
+            px: 4,
+            py: 1,
+            bgcolor: (theme) => theme.palette.secondary.light,
+          }}
+        >
+          Get In Touch &nbsp;
+          <DoubleArrow />
+        </Button>
+      </Link>
     </Layout>
   );
 };

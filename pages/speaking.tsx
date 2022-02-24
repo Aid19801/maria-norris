@@ -128,7 +128,7 @@ export const SpeakingPage = () => {
       <Grid container spacing={2} display="flex" alignItems="stretch">
         {content.speaking.rowOfImgs.map((each) => {
           return (
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={3} key={each.text}>
               <Box
                 sx={{
                   borderRadius: 25,

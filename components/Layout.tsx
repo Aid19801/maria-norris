@@ -12,10 +12,7 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({
-  children,
-  title = "Funk-27 | Politics, Dystopia, Comedy, Tech.",
-}: Props) => {
+const Layout = ({ children, title = "Maria W. Norris" }: Props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { isLoading } = useMainContext();

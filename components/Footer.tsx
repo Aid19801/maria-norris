@@ -8,32 +8,6 @@ import { content } from "../utils/strings";
 export function Footer(): ReactElement {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const handleClick = (location: string) => {
-    let str = "";
-
-    switch (location) {
-      case "facebook":
-        str = "https://www.facebook.com/funkTwentySeven";
-        break;
-
-      case "twitter":
-        str = "https://www.twitter.com/aidThompsin";
-        break;
-
-      case "linkedin":
-        str = "https://www.linkedin.com/company/funk-27";
-        break;
-
-      case "email":
-        window.location.href =
-          "mailto:aidThompsin@gmail.com" + "&subject='email_website_query'";
-        break;
-
-      default:
-        return;
-    }
-    return window.open(str);
-  };
   return (
     <React.Fragment>
       <Grid container spacing={2} sx={{ bgcolor: "white" }}>
@@ -49,18 +23,6 @@ export function Footer(): ReactElement {
                   ml: 2,
                 }}
               >
-                {/* <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: "5vh",
-                    marginLeft: 0,
-                    marginBottom: 0,
-                    color: "grey",
-                    fontWeight: 400,
-                  }}
-                >
-                  Dr&nbsp;
-                </Typography> */}
                 <Typography
                   variant="body1"
                   sx={{

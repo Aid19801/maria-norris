@@ -1,13 +1,13 @@
 export const content = {
   HOME_URL: "https://mariawnorris.com",
   title: "Dr Maria W. Norris",
-  description: "Academic, advisor on National Security and Extremism",
-  bio_description: "About the Academic, advisor and podcast host, Dr Maria W. Norris",
+  description: "Academic, expert on National Security and Extremism",
+  bio_description: "About the Academic, expert and podcast host, Dr Maria W. Norris",
   contact_description: "Get in touch to discuss my anything in my field of expertise or Writing or Speaking engagements.",
   podcast_description: "Enemies of the People is a weekly podcast inviting guests on to discuss Extremism in the 21st Century.",
   speaking_description: "Dr Maria W. Norris is available for Media and Speaking appearances.",
   writing_description: "Dr Maria W. Norris has contributed to an impressive range of publications from within the British press.",
-  home_description: "Welcome to the website for Academic, Advisor on Extremism & National Security - and Podcast host, Dr Maria W. Norris",
+  home_description: "Welcome to the website for Academic, Expert on Extremism & National Security - and Podcast host, Dr Maria W. Norris",
   about_para_1:
     "Dr Maria W. Norris is an Assistant Professor of International Relations at Coventry University and an Honorary Research Fellow at the University of Warwick. Her work focuses on UK counterterrorism, white nationalism, and extremism. She has spent the last ten years researching the UK counterterrorism strategy and how it relates to questions of nationalism and belonging. Her most recent research project is on the history of white nationalism in the United Kingdom. Maria has previously worked at the University of Warwick and the London School of Economics and Political Science.",
   about_para_2:
@@ -154,7 +154,7 @@ export const content = {
   ],
   meta: {
     siteDescription:
-      "Dr Maria W Norris - Academic, Podcaster and Advisor on Extremism",
+      "Dr Maria W Norris - Academic, Podcaster and Expert on Extremism",
     twitterSite: "@MariaWNorris",
     twitterSiteCreator: "@MariaWNorris",
     podcastTitle: "Enemies Of The People",
@@ -178,10 +178,10 @@ export const content = {
       },
     ],
     linksCenter: [
-      {
-        text: "LSE",
-        link: "https://www.law.ox.ac.uk/people/maria-w-norris",
-      },
+      // {
+      //   text: "LSE",
+      //   link: "https://www.law.ox.ac.uk/people/maria-w-norris",
+      // },
       {
         text: "Conventry University",
         link: "https://pureportal.coventry.ac.uk/en/persons/maria-norris",
